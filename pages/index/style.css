@@ -1,6 +1,6 @@
-/* img {
-	margin-bottom: 1.5rem;
-} */
+img.avatar {
+	border-radius: 100%;
+}
 
 section {
 	margin-top: 5rem;

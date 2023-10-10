@@ -3,7 +3,7 @@ import './style.css';
 export function Page() {
 	return (
 		<div>
-			<img src='/avatar.jpg' alt="Iori Branford's avatar" height="160" width="160" />
+			<img class='avatar' src='/avatar.jpg' alt="Iori Branford's avatar" height="160" width="160" />
 			<h1>Iori Branford</h1>
 			<section>
 				<Resource
