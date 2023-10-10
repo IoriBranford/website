@@ -18,15 +18,15 @@ async function render(pageContext) {
 
 	// See https://vike.dev/head
 	const { documentProps } = pageContext.exports;
-	const title = (documentProps && documentProps.title) || 'Vite SSR + Preact';
+	const title = (documentProps && documentProps.title) || 'Iori Branford';
 	const desc =
-		(documentProps && documentProps.description) || 'Preact app with Vite and vike';
+		(documentProps && documentProps.description) || 'Monstergirl fantasy action games';
 
 	const documentHtml = escapeInject`<!DOCTYPE html>
 		<html lang="en">
 		<head>
 			<meta charset="UTF-8" />
-			<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+			<link rel="icon" type="image/jpeg" href="/avatar.jpg" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<meta name="color-scheme" content="light dark" />
 			<meta name="description" content="${desc}" />
