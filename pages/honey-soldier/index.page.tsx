@@ -1,13 +1,16 @@
 import About from "./about.mdx";
-import './style.css'
+import "../gamepage.css";
 
 export function Page() {
   return (
-    <section>
-      <img src="/honey-soldier/cover-art.jpg" />
-      <div style={{ textAlign: "left" }}>
-        <About />
-      </div>
-    </section>
+    <div>
+      <h1>Honey Soldier</h1>
+      <section>
+        <img src="/honey-soldier/cover-art.jpg" />
+        <div style={{ textAlign: "left" }}>
+          <About />
+        </div>
+      </section>
+    </div>
   );
 }
