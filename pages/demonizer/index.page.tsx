@@ -1,5 +1,12 @@
-import About from './about.mdx'
+import About from "./about.mdx";
 
 export function Page() {
-	return <div><About/></div>
+  return (
+    <>
+      <img src="/demonizer/cover-art.png" />
+      <div style={{ textAlign: "left" }}>
+        <About />
+      </div>
+    </>
+  );
 }
