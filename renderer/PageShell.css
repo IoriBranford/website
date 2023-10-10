@@ -25,18 +25,31 @@ body {
 
 header {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	background-color: #673ab8;
 }
 
 header nav {
 	display: flex;
+	font-size: larger;
 }
 
 header a {
 	color: #fff;
 	padding: 0.75rem;
 	text-decoration: none;
+}
+
+header div.brand {
+	display: flex;
+	flex-direction: row;
+	column-gap: .75rem;
+}
+
+header img.avatar {
+	height: 32px;
+	line-height: 0;
+	border-radius: 100%;
 }
 
 header a.active {

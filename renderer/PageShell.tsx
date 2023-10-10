@@ -17,7 +17,10 @@ export function Header({ url }) {
 		<header>
 			<nav>
 				<a href="/" class={url == '/' && 'active'}>
-					Home
+					<div class='brand'>
+						<img class='avatar' src='/avatar.jpg'/>
+						Iori Branford
+					</div>
 				</a>
 				<a href="/games" class={url == '/games' && 'active'}>
 					Games
