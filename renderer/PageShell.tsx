@@ -19,8 +19,8 @@ export function Header({ url }) {
 				<a href="/" class={url == '/' && 'active'}>
 					Home
 				</a>
-				<a href="/404" class={url == '/404' && 'active'}>
-					404
+				<a href="/games" class={url == '/games' && 'active'}>
+					Games
 				</a>
 			</nav>
 		</header>
