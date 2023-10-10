@@ -9,6 +9,11 @@ export function Page() {
 					description="Succubus shooter"
 					href="/demonizer"
 				/>
+				<Resource
+					title="Honey Soldier"
+					description="Shoot hive invaders in 2 minutes"
+					href="/honey-soldier"
+				/>
 			</section>
 		</div>
 	);
