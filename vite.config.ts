@@ -12,7 +12,7 @@ export default defineConfig({
 	plugins: [
 		preact(),
 		ssr({ prerender: true }),
-		mdx(),
+		mdx({ jsxImportSource: 'preact' }),
 		mkcert()
 	],
 });
