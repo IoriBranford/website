@@ -70,6 +70,11 @@ main {
 	text-align: center;
 }
 
+footer {
+	padding: 1rem;
+	text-align: center;
+}
+
 @media (max-width: 639px) {
 	#app {
 		margin: 2rem;
