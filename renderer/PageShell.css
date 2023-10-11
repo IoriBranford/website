@@ -47,7 +47,8 @@ header div.brand {
 }
 
 header img.avatar {
-	height: 32px;
+	width: 32px;
+	height: auto;
 	line-height: 0;
 	border-radius: 100%;
 }
