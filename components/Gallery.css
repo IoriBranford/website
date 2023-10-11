@@ -16,11 +16,12 @@ img.thumbnail, img.thumbnail-selected {
 	border: 1px solid transparent;
 }
 
-img.thumbnail-selected {
-	border: 1px solid #000;
+img.thumbnail:hover {
+	border: 1px dotted #000;
 }
 
-img.thumbnail-selected, img.thumbnail:hover {
+img.thumbnail-selected {
+	border: 1px solid #000;
 	box-shadow: 0 25px 50px -12px #673ab888;
 }
 
@@ -42,6 +43,9 @@ section.thumbnailgrid {
 	img.thumbnail, img.thumbnail-selected {
 		color: #ccc;
 		background-color: #161616;
+	}
+	img.thumbnail:hover {
+		border: 1px dotted #bbb;
 	}
 	img.thumbnail-selected {
 		border: 1px solid #bbb;
