@@ -1,5 +1,10 @@
 import './style.css';
 
+export const documentProps = {
+	title: 'Games by Iori Branford',
+	description: "Monstergirl fantasy action games"
+}
+
 export function Page() {
 	return (
 		<div>

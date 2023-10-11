@@ -1,6 +1,11 @@
 import About from "./about.mdx";
 import "../gamepage.css";
 
+export const documentProps = {
+	title: 'Honey Soldier',
+	description: "Shoot invaders out of your hive in two minutes"
+}
+
 export function Page() {
   return (
     <div>

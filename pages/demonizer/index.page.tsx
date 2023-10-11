@@ -1,6 +1,11 @@
 import About from "./about.mdx";
 import "../gamepage.css";
 
+export const documentProps = {
+	title: 'Demonizer',
+	description: "The fantasy bullet battle to end monstergirl genocide!"
+}
+
 export function Page() {
   return (
     <div>
