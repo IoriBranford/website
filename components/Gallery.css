@@ -31,6 +31,13 @@ section.thumbnailgrid {
 	justify-items: center;
 }
 
+@media (max-width: 1023px) {
+	section.thumbnailgrid {
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: 1rem;
+	}
+}
+
 @media (prefers-color-scheme: dark) {
 	img.thumbnail, img.thumbnail-selected {
 		color: #ccc;
