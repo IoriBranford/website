@@ -1,37 +1,53 @@
 import About from "./about.mdx";
 import "../gamepage.css";
-import Gallery from "../../components/Gallery";
+import Gallery, { GalleryImage, GalleryItem } from "../../components/Gallery";
 
 export const documentProps = {
   title: "Honey Soldier",
   description: "Shoot invaders out of your hive in two minutes",
 };
 
-const Media = [
-  <img
-    src="/honey-soldier/cover-art.jpg"
-    alt="Honey Soldier key art"
-    width='auto'
-    height='100%'
-  />,
-  <img
-    src="/honey-soldier/shot1.jpg"
-    alt="Honey Soldier screenshot 1"
-    width={640}
-    height={360}
-  />,
-  <img
-    src="/honey-soldier/shot2.jpg"
-    alt="Honey Soldier screenshot 2"
-    width={640}
-    height={360}
-  />,
-  <img
-    src="/honey-soldier/shot3.jpg"
-    alt="Honey Soldier screenshot 3"
-    width={640}
-    height={360}
-  />,
+const GalleryItems: GalleryItem[] = [
+  {
+    element: (
+      <GalleryImage
+        src="/honey-soldier/cover-art.jpg"
+        alt="Honey Soldier key art"
+      />
+    ),
+    thumbnail: "/honey-soldier/cover-art.jpg",
+    caption: "",
+  },
+  {
+    element: (
+      <GalleryImage
+        src="/honey-soldier/shot1.jpg"
+        alt="Honey Soldier screenshot 1"
+      />
+    ),
+    thumbnail: "/honey-soldier/shot1.jpg",
+    caption: "",
+  },
+  {
+    element: (
+      <GalleryImage
+        src="/honey-soldier/shot2.jpg"
+        alt="Honey Soldier screenshot 2"
+      />
+    ),
+    thumbnail: "/honey-soldier/shot2.jpg",
+    caption: "",
+  },
+  {
+    element: (
+      <GalleryImage
+        src="/honey-soldier/shot3.jpg"
+        alt="Honey Soldier screenshot 3"
+      />
+    ),
+    thumbnail: "/honey-soldier/shot3.jpg",
+    caption: "",
+  },
 ];
 
 export function Page() {
@@ -39,8 +55,8 @@ export function Page() {
     <div>
       <h1>Honey Soldier</h1>
       <section>
-        <Gallery media={Media} />
-        <div style={{ textAlign: "left" }}>
+        <Gallery items={GalleryItems} />
+        <article style={{ textAlign: "left" }}>
           <About />
           <h2 style={{ textAlign: "center" }}>Play for Free</h2>
           <section>
@@ -64,7 +80,7 @@ export function Page() {
               />
             </a>
           </section>
-        </div>
+        </article>
       </section>
     </div>
   );

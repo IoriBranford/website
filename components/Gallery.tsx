@@ -1,17 +1,29 @@
 import { useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
-import './Gallery.css'
+import "./Gallery.css";
 
-export default function Gallery({ media }: { media: JSX.Element[] }) {
-  const [i, setI] = useState<number>(0);
+export function GalleryImage({src, alt}) {
+  return <img src={src} alt={alt} />
+}
+
+export interface GalleryItem {
+  element: JSX.Element;
+  thumbnail: string;
+  caption: string;
+}
+
+export default function Gallery({ items }: { items: GalleryItem[] }) {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
   return (
     <div>
-      <div height='auto' width='100%'>
-        {media[i]}
-      </div>
+      <div class="activeitem">{items[activeIndex].element}</div>
       <section class="thumbnailgrid">
-        {media.map((c, ci) => (
-          <div onClick={() => setI(ci)}>{c}</div>
+        {items.map((item, itemi) => (
+          <img class={itemi == activeIndex ? 'thumbnail-selected' : 'thumbnail'}
+            onClick={() => setActiveIndex(itemi)}
+            src={item.thumbnail}
+            alt={item.caption}
+          />
         ))}
       </section>
     </div>

@@ -1,6 +1,42 @@
+img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+	aspect-ratio: 16/9;
+}
+
+img.thumbnail, img.thumbnail-selected {
+	cursor: pointer;
+	padding: 0.25rem;
+	border-radius: 0.5rem;
+	text-align: left;
+	text-decoration: none;
+	color: #222;
+	background-color: #f1f1f1;
+	border: 1px solid transparent;
+}
+
+img.thumbnail-selected {
+	border: 1px solid #000;
+}
+
+img.thumbnail-selected, img.thumbnail:hover {
+	box-shadow: 0 25px 50px -12px #673ab888;
+}
+
 section.thumbnailgrid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	column-gap: 1rem;
 	justify-items: center;
+}
+
+@media (prefers-color-scheme: dark) {
+	img.thumbnail, img.thumbnail-selected {
+		color: #ccc;
+		background-color: #161616;
+	}
+	img.thumbnail-selected {
+		border: 1px solid #bbb;
+	}
 }
