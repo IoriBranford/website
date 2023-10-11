@@ -16,7 +16,7 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   return (
     <div>
-      <div class="activeitem">{items[activeIndex].element}</div>
+      {items[activeIndex].element}
       <section class="thumbnailgrid">
         {items.map((item, itemi) => (
           <img class={itemi == activeIndex ? 'thumbnail-selected' : 'thumbnail'}
