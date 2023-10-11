@@ -9,9 +9,9 @@ export const documentProps = {
 export function Page() {
   return (
     <div>
-      <img src="/demonizer/logo.png" />
+      <img src="/demonizer/logo.png" alt='Demonizer logo' width={960} height={240} />
       <section>
-        <img src="/demonizer/cover-art.png" />
+        <img src="/demonizer/cover-art.png" alt='Demonizer key art' width={696} height={900} />
         <div style={{ textAlign: "left" }}>
           <About />
         </div>

@@ -11,7 +11,7 @@ export function Page() {
     <div>
       <h1>Honey Soldier</h1>
       <section>
-        <img src="/honey-soldier/cover-art.jpg" />
+        <img src="/honey-soldier/cover-art.jpg" alt='Honey Soldier key art' width={756} height={600}/>
         <div style={{ textAlign: "left" }}>
           <About />
         </div>
