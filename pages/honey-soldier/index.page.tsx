@@ -49,6 +49,7 @@ export function Page() {
               src="https://itch.io/embed/1579324?bg_color=f1e49d&amp;fg_color=000000&amp;link_color=fa5c5c&amp;border_color=a17c18"
               width="208"
               height="167"
+              title="Honey Guardian on itch.io"
             >
               <a href="https://ioribranford.itch.io/honey-guardian">
                 Honey Guardian by IoriBranford
