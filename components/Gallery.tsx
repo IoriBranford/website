@@ -2,8 +2,8 @@ import { useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import "./Gallery.css";
 
-export function GalleryImage({src, alt}) {
-  return <img src={src} alt={alt} />
+export function GalleryImage({src = "", srcset = "", alt = ""}) {
+  return <img src={src} srcset={srcset} alt={alt} />
 }
 
 export interface GalleryItem {
@@ -21,7 +21,7 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
         {items.map((item, itemi) => (
           <img class={itemi == activeIndex ? 'thumbnail-selected' : 'thumbnail'}
             onClick={() => setActiveIndex(itemi)}
-            src={item.thumbnail}
+            srcset={item.thumbnail}
             alt={item.caption}
           />
         ))}
