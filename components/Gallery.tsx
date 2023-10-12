@@ -3,7 +3,7 @@ import { JSX } from "preact/jsx-runtime";
 import "./Gallery.css";
 
 export function GalleryImage({src = "", srcset = "", alt = ""}) {
-  return <img src={src} srcset={srcset} alt={alt} />
+  return <img class='active' src={src} srcset={srcset} alt={alt} />
 }
 
 export interface GalleryItem {
