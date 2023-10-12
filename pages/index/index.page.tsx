@@ -8,7 +8,7 @@ export const documentProps = {
 export function Page() {
 	return (
 		<div>
-			<img class='avatar' src='/avatar.jpg' alt="Iori Branford's avatar" height="160" width="160" />
+			<img class='avatar' src='/avatar.png' alt="Iori Branford's avatar" height="256" width="256" />
 			<h1>Iori Branford</h1>
 			<section>
 				<Resource

@@ -19,7 +19,7 @@ export function Header({ url }) {
 			<nav>
 				<a href="/" class={url == '/' && 'active'}>
 					<div class='brand'>
-						<img class='avatar' width={32} height={32} src='/avatar.jpg' alt='Iori Branford avatar'/>
+						<img width={32} height={32} src='/avatar.png' alt='Iori Branford avatar'/>
 						Iori Branford
 					</div>
 				</a>
