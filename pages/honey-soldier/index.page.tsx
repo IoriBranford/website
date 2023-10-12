@@ -2,6 +2,11 @@ import About from "./about.mdx";
 import "../gamepage.css";
 import Gallery, { GalleryImage, GalleryItem } from "../../components/Gallery";
 
+import CoverArt from './assets/cover-art.jpg?galleryimg'
+import Shot1 from './assets/shot1.jpg?galleryimg'
+import Shot2 from './assets/shot2.jpg?galleryimg'
+import Shot3 from './assets/shot3.jpg?galleryimg'
+
 export const documentProps = {
   title: "Honey Soldier",
   description: "Shoot invaders out of your hive in two minutes",
@@ -11,41 +16,41 @@ const GalleryItems: GalleryItem[] = [
   {
     element: (
       <GalleryImage
-        src="/honey-soldier/cover-art.jpg"
+        srcset={CoverArt}
         alt="Honey Soldier key art"
       />
     ),
-    thumbnail: "/honey-soldier/cover-art.jpg",
+    thumbnail: CoverArt,
     caption: "",
   },
   {
     element: (
       <GalleryImage
-        src="/honey-soldier/shot1.jpg"
+        srcset={Shot1}
         alt="Honey Soldier screenshot 1"
       />
     ),
-    thumbnail: "/honey-soldier/shot1.jpg",
+    thumbnail: Shot1,
     caption: "",
   },
   {
     element: (
       <GalleryImage
-        src="/honey-soldier/shot2.jpg"
+        srcset={Shot2}
         alt="Honey Soldier screenshot 2"
       />
     ),
-    thumbnail: "/honey-soldier/shot2.jpg",
+    thumbnail: Shot2,
     caption: "",
   },
   {
     element: (
       <GalleryImage
-        src="/honey-soldier/shot3.jpg"
+        srcset={Shot3}
         alt="Honey Soldier screenshot 3"
       />
     ),
-    thumbnail: "/honey-soldier/shot3.jpg",
+    thumbnail: Shot3,
     caption: "",
   },
 ];
