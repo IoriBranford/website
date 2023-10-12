@@ -19,6 +19,8 @@
     "typescript": "^5.2.2",
     "vike": "^0.4.133",
     "vite": "^4.3.2",
+    "vite-imagetools": "^5.0.9",
     "vite-plugin-mkcert": "^1.16.0"
-  }
+  },
+  "trustedDependencies": ["sharp"]
 }
