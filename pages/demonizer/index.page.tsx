@@ -1,20 +1,27 @@
 import About from "./about.mdx";
 import "../gamepage.css";
 import Gallery, {
-  GalleryIFrame,
   GalleryImage,
   GalleryItem,
 } from "../../components/Gallery";
 
 import Logo from "./assets/logo.png?logo";
-import CoverArt from "./assets/cover-art.png?galleryimg";
-import Shot1 from "./assets/shot1.jpg?galleryimg";
-import Shot2 from "./assets/shot2.jpg?galleryimg";
-import Shot3 from "./assets/shot3.jpg?galleryimg";
-import Shot4 from "./assets/shot4.jpg?galleryimg";
-import Shot5 from "./assets/shot5.jpg?galleryimg";
-import Shot6 from "./assets/shot6.jpg?galleryimg";
-import Shot7 from "./assets/shot7.jpg?galleryimg";
+
+const GalleryImageItems : Record<string, string> = import.meta.glob([
+  './gallery/*.png', './gallery/*.jpg',
+], {
+  eager: true,
+  import: 'default',
+  query: {
+    galleryimg: true
+  }
+})
+const GalleryComponentItems : Record<string, GalleryItem> = import.meta.glob([
+  './gallery/*.tsx'
+], {
+  eager: true,
+  import: 'default'
+})
 
 export const documentProps = {
   title: "Demonizer",
@@ -22,58 +29,13 @@ export const documentProps = {
 };
 
 const GalleryItems: GalleryItem[] = [
-  {
-    element: <GalleryImage srcset={CoverArt} alt="Demonizer key art" />,
-    thumbnail: CoverArt,
-    caption: "",
-  },
-  {
-    element: (
-      <GalleryIFrame
-        src="https://www.youtube-nocookie.com/embed/TGYRJMf5UbM?si=6wN1NIq0GRNjcPes"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
-    ),
-    thumbnail: Shot1,
-    caption: "",
-  },
-  // {
-  //   element: <GalleryImage srcset={Shot1} alt="Demonizer screenshot 1" />,
-  //   thumbnail: Shot1,
-  //   caption: "",
-  // },
-  // {
-  //   element: <GalleryImage srcset={Shot2} alt="Demonizer screenshot 2" />,
-  //   thumbnail: Shot2,
-  //   caption: "",
-  // },
-  // {
-  //   element: <GalleryImage srcset={Shot3} alt="Demonizer screenshot 3" />,
-  //   thumbnail: Shot3,
-  //   caption: "",
-  // },
-  {
-    element: <GalleryImage srcset={Shot4} alt="Demonizer screenshot 4" />,
-    thumbnail: Shot4,
-    caption: "",
-  },
-  // {
-  //   element: <GalleryImage srcset={Shot5} alt="Demonizer screenshot 5" />,
-  //   thumbnail: Shot5,
-  //   caption: "",
-  // },
-  {
-    element: <GalleryImage srcset={Shot6} alt="Demonizer screenshot 6" />,
-    thumbnail: Shot6,
-    caption: "",
-  },
-  // {
-  //   element: <GalleryImage srcset={Shot7} alt="Demonizer screenshot 7" />,
-  //   thumbnail: Shot7,
-  //   caption: "",
-  // },
-];
+  ...Object.entries(GalleryImageItems).map((item) => {return {
+    element: <GalleryImage srcset={item[1]} alt={item[0]}/>,
+    thumbnail: item[1],
+    caption: ""
+  }}),
+  ...Object.values(GalleryComponentItems)
+]
 
 export function Page() {
   return (

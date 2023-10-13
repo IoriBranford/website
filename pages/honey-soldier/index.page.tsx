@@ -2,58 +2,31 @@ import About from "./about.mdx";
 import "../gamepage.css";
 import Gallery, { GalleryImage, GalleryItem } from "../../components/Gallery";
 
-import CoverArt from './assets/cover-art.jpg?galleryimg'
-import Shot1 from './assets/shot1.jpg?galleryimg'
-import Shot2 from './assets/shot2.jpg?galleryimg'
-import Shot3 from './assets/shot3.jpg?galleryimg'
+const GalleryImageItems: Record<string, string> = import.meta.glob(
+  ["./gallery/*.png", "./gallery/*.jpg"],
+  {
+    eager: true,
+    import: "default",
+    query: {
+      galleryimg: true,
+    },
+  }
+);
 
 export const documentProps = {
   title: "Honey Soldier",
   description: "Shoot invaders out of your hive in two minutes",
 };
 
-const GalleryItems: GalleryItem[] = [
-  {
-    element: (
-      <GalleryImage
-        srcset={CoverArt}
-        alt="Honey Soldier key art"
-      />
-    ),
-    thumbnail: CoverArt,
-    caption: "",
-  },
-  {
-    element: (
-      <GalleryImage
-        srcset={Shot1}
-        alt="Honey Soldier screenshot 1"
-      />
-    ),
-    thumbnail: Shot1,
-    caption: "",
-  },
-  {
-    element: (
-      <GalleryImage
-        srcset={Shot2}
-        alt="Honey Soldier screenshot 2"
-      />
-    ),
-    thumbnail: Shot2,
-    caption: "",
-  },
-  {
-    element: (
-      <GalleryImage
-        srcset={Shot3}
-        alt="Honey Soldier screenshot 3"
-      />
-    ),
-    thumbnail: Shot3,
-    caption: "",
-  },
-];
+const GalleryItems: GalleryItem[] = Object.entries(GalleryImageItems).map(
+  (item) => {
+    return {
+      element: <GalleryImage srcset={item[1]} alt={item[0]} />,
+      thumbnail: item[1],
+      caption: "",
+    };
+  }
+);
 
 export function Page() {
   return (
