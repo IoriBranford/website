@@ -30,12 +30,12 @@ const GalleryItems: GalleryItem[] = [
   {
     element: (
       <GalleryIFrame
-        src="https://www.youtube.com/embed/TGYRJMf5UbM?si=6wN1NIq0GRNjcPes"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        src="https://www.youtube-nocookie.com/embed/TGYRJMf5UbM?si=6wN1NIq0GRNjcPes"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
     ),
-    thumbnail: "https://img.youtube.com/vi/TGYRJMf5UbM/mqdefault.jpg",
+    thumbnail: Shot1,
     caption: "",
   },
   // {
