@@ -1,2 +1,2 @@
 declare module "*?galleryimg";
-declare module "*?avatar";
+declare module "*?logo";

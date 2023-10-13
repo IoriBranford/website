@@ -29,8 +29,8 @@ export default defineConfig({
 				let params = "?format=webp"
 				if (params0.has("galleryimg")) {
 					params = "?as=srcset&format=webp&w=640;160"
-				} else if (params0.has("avatar")) {
-					params = "?as=srcset&format=webp&w=256;32"
+				} else if (params0.has("logo")) {
+					params = "?as=srcset&format=webp&w=1280;640"
 				}
 				return new URLSearchParams(params)
 			}
