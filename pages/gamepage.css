@@ -1,3 +1,10 @@
+img.logo {
+	max-width: 100%;
+	max-height: 100%;
+	/* object-fit: contain;
+	aspect-ratio: 4; */
+}
+
 section {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
