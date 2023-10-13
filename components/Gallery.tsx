@@ -23,7 +23,7 @@ export interface GalleryItem {
 export default function Gallery({ items }: { items: GalleryItem[] }) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   return (
-    <div>
+    <div class='gallery'>
       {items[activeIndex].element}
       <section class="thumbnailgrid">
         {items.map((item, itemi) => (
