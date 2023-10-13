@@ -38,41 +38,41 @@ const GalleryItems: GalleryItem[] = [
     thumbnail: "https://img.youtube.com/vi/TGYRJMf5UbM/mqdefault.jpg",
     caption: "",
   },
-  {
-    element: <GalleryImage srcset={Shot1} alt="Demonizer screenshot 1" />,
-    thumbnail: Shot1,
-    caption: "",
-  },
-  {
-    element: <GalleryImage srcset={Shot2} alt="Demonizer screenshot 2" />,
-    thumbnail: Shot2,
-    caption: "",
-  },
-  {
-    element: <GalleryImage srcset={Shot3} alt="Demonizer screenshot 3" />,
-    thumbnail: Shot3,
-    caption: "",
-  },
+  // {
+  //   element: <GalleryImage srcset={Shot1} alt="Demonizer screenshot 1" />,
+  //   thumbnail: Shot1,
+  //   caption: "",
+  // },
+  // {
+  //   element: <GalleryImage srcset={Shot2} alt="Demonizer screenshot 2" />,
+  //   thumbnail: Shot2,
+  //   caption: "",
+  // },
+  // {
+  //   element: <GalleryImage srcset={Shot3} alt="Demonizer screenshot 3" />,
+  //   thumbnail: Shot3,
+  //   caption: "",
+  // },
   {
     element: <GalleryImage srcset={Shot4} alt="Demonizer screenshot 4" />,
     thumbnail: Shot4,
     caption: "",
   },
-  {
-    element: <GalleryImage srcset={Shot5} alt="Demonizer screenshot 5" />,
-    thumbnail: Shot5,
-    caption: "",
-  },
+  // {
+  //   element: <GalleryImage srcset={Shot5} alt="Demonizer screenshot 5" />,
+  //   thumbnail: Shot5,
+  //   caption: "",
+  // },
   {
     element: <GalleryImage srcset={Shot6} alt="Demonizer screenshot 6" />,
     thumbnail: Shot6,
     caption: "",
   },
-  {
-    element: <GalleryImage srcset={Shot7} alt="Demonizer screenshot 7" />,
-    thumbnail: Shot7,
-    caption: "",
-  },
+  // {
+  //   element: <GalleryImage srcset={Shot7} alt="Demonizer screenshot 7" />,
+  //   thumbnail: Shot7,
+  //   caption: "",
+  // },
 ];
 
 export function Page() {
