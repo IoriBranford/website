@@ -1,4 +1,4 @@
-img.active, img.thumbnail, img.thumbnail-selected {
+.active, img.thumbnail, img.thumbnail-selected {
 	width: 100%;
 	max-width: 100%;
 	height: auto;

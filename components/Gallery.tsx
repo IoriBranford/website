@@ -6,6 +6,14 @@ export function GalleryImage({src = "", srcset = "", alt = ""}) {
   return <img class='active' sizes='640px' src={src} srcset={srcset} alt={alt} />
 }
 
+export function GalleryIFrame(props: {
+  src: string;
+  allow:string;
+  allowFullScreen:boolean;
+}) {
+  return <iframe class='active' frameBorder="0" {...props}/>
+}
+
 export interface GalleryItem {
   element: JSX.Element;
   thumbnail: string;
