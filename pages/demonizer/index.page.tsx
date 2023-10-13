@@ -40,7 +40,8 @@ export function Page() {
         class="logo"
         srcset={Logo}
         alt="Demonizer logo"
-        sizes="(max-width: 600px) 640px, 1280px"
+        width="640"
+        height="160"
       />
       <section>
         <Gallery items={GalleryItems} />
