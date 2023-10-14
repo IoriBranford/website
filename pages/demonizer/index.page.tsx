@@ -7,7 +7,7 @@ import Gallery, {
 
 import Logo from "./assets/logo.png?logo";
 
-const GalleryImageItems : Record<string, string> = import.meta.glob([
+const ImageItems : Record<string, string> = import.meta.glob([
   './gallery/*.png', './gallery/*.jpg',
 ], {
   eager: true,
@@ -16,6 +16,14 @@ const GalleryImageItems : Record<string, string> = import.meta.glob([
     galleryimg: true
   }
 })
+
+const OriginalImages : Record<string, string> = import.meta.glob([
+  './gallery/*.png', './gallery/*.jpg',
+], {
+  eager: true,
+  import: 'default',
+})
+
 const GalleryComponentItems : Record<string, GalleryItem> = import.meta.glob([
   './gallery/*.tsx'
 ], {
@@ -29,8 +37,8 @@ export const documentProps = {
 };
 
 const GalleryItems: GalleryItem[] = [
-  ...Object.entries(GalleryImageItems).map((item) => {return {
-    element: <GalleryImage srcset={item[1]} alt={item[0]}/>,
+  ...Object.entries(ImageItems).map((item) => {return {
+    element: <GalleryImage src={OriginalImages[item[0]]} srcset={item[1]} alt={item[0]}/>,
     thumbnail: item[1],
     caption: ""
   }}),

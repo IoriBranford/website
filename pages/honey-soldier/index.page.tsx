@@ -2,7 +2,7 @@ import About from "./about.mdx";
 import "../gamepage.css";
 import Gallery, { GalleryImage, GalleryItem } from "../../components/Gallery";
 
-const GalleryImageItems: Record<string, string> = import.meta.glob(
+const ImageItems: Record<string, string> = import.meta.glob(
   ["./gallery/*.png", "./gallery/*.jpg"],
   {
     eager: true,
@@ -13,15 +13,23 @@ const GalleryImageItems: Record<string, string> = import.meta.glob(
   }
 );
 
+const OriginalImages: Record<string, string> = import.meta.glob(
+  ["./gallery/*.png", "./gallery/*.jpg"],
+  {
+    eager: true,
+    import: "default",
+  }
+);
+
 export const documentProps = {
   title: "Honey Soldier",
   description: "Shoot invaders out of your hive in two minutes",
 };
 
-const GalleryItems: GalleryItem[] = Object.entries(GalleryImageItems).map(
+const GalleryItems: GalleryItem[] = Object.entries(ImageItems).map(
   (item) => {
     return {
-      element: <GalleryImage srcset={item[1]} alt={item[0]} />,
+      element: <GalleryImage src={OriginalImages[item[0]]} srcset={item[1]} alt={item[0]} />,
       thumbnail: item[1],
       caption: "",
     };

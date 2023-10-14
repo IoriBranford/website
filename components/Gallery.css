@@ -8,10 +8,6 @@ div.gallery {
 	height: auto;
 	object-fit: contain;
 	aspect-ratio: 16/9;
-}
-
-img.thumbnail, img.thumbnail-selected {
-	cursor: pointer;
 	padding: 0.25rem;
 	border-radius: 0.5rem;
 	text-align: left;
@@ -21,11 +17,19 @@ img.thumbnail, img.thumbnail-selected {
 	border: 1px solid transparent;
 }
 
-img.thumbnail:hover {
+.active {
+	cursor: zoom-in;
+}
+
+img.thumbnail, img.thumbnail-selected {
+	cursor: pointer;
+}
+
+.active:hover, img.thumbnail:hover {
 	border: 1px dotted #000;
 }
 
-img.thumbnail-selected {
+.active-selected, img.thumbnail-selected {
 	border: 1px solid #000;
 	box-shadow: 0 25px 50px -12px #673ab888;
 }
@@ -45,14 +49,14 @@ section.thumbnailgrid {
 }
 
 @media (prefers-color-scheme: dark) {
-	img.thumbnail, img.thumbnail-selected {
+	.active, img.thumbnail, img.thumbnail-selected {
 		color: #ccc;
 		background-color: #161616;
 	}
-	img.thumbnail:hover {
+	.active:hover, img.thumbnail:hover {
 		border: 1px dotted #bbb;
 	}
-	img.thumbnail-selected {
+	.active-selected, img.thumbnail-selected {
 		border: 1px solid #bbb;
 	}
 }
