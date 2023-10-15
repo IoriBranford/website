@@ -1,6 +1,8 @@
 import About from "./about.mdx";
 import "../gamepage.css";
 import Gallery, { GalleryImage, GalleryItem } from "../../components/Gallery";
+import LinkButtons from "#root/components/LinkButtons";
+import OsIcons from "#root/components/OsIcons";
 
 const ImageItems: Record<string, string> = import.meta.glob(
   ["./gallery/*.png", "./gallery/*.jpg"],
@@ -26,15 +28,19 @@ export const documentProps = {
   description: "Shoot invaders out of your hive in two minutes",
 };
 
-const GalleryItems: GalleryItem[] = Object.entries(ImageItems).map(
-  (item) => {
-    return {
-      element: <GalleryImage src={OriginalImages[item[0]]} srcset={item[1]} alt={item[0]} />,
-      thumbnail: item[1],
-      caption: "",
-    };
-  }
-);
+const GalleryItems: GalleryItem[] = Object.entries(ImageItems).map((item) => {
+  return {
+    element: (
+      <GalleryImage
+        src={OriginalImages[item[0]]}
+        srcset={item[1]}
+        alt={item[0]}
+      />
+    ),
+    thumbnail: item[1],
+    caption: "",
+  };
+});
 
 export function Page() {
   return (
@@ -45,7 +51,42 @@ export function Page() {
         <article style={{ textAlign: "left" }}>
           <About />
           <h2 style={{ textAlign: "center" }}>Play for Free</h2>
-          <section style={{ textAlign: "center" }}>
+          <LinkButtons
+            buttonsProps={[
+              {
+                link: "https://ioribranford.itch.io/honey-guardian",
+                element: (
+                  <>
+                    <p>
+                      <i class="fa-brands fa-itch-io" /> itch.io
+                    </p>
+                    <p>
+                      <OsIcons
+                        oses={["windows", "android", "linux", "apple", "html5"]}
+                      />
+                    </p>
+                  </>
+                ),
+                backgroundColor: "#fa5c5c",
+              },
+              {
+                link: "https://play.google.com/store/apps/details?id=com.ioribranford.honeysoldier",
+                element: (
+                  <>
+                    <p>
+                      <i class="fa-brands fa-google-play" /> Google Play
+                    </p>
+                    <p>
+                      <OsIcons oses={["android"]} />
+                    </p>
+                  </>
+                ),
+                backgroundColor: "#0F9D58",
+              },
+              // 'Google Play Store (Android only)': 'https://play.google.com/store/apps/details?id=com.ioribranford.honeysoldier'
+            ]}
+          />
+          {/* <section style={{ textAlign: "center" }}>
             <div>
               <iframe
                 frameborder="0"
@@ -71,7 +112,7 @@ export function Page() {
               </a>
               <p>For Android</p>
             </div>
-          </section>
+          </section> */}
         </article>
       </section>
     </div>
