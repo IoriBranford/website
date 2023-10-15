@@ -5,6 +5,7 @@ div.linkbuttons {
 }
 
 .button,
+.button-steam,
 .button-itch-io,
 .button-google-play {
   background-color: #1c87c9;
@@ -18,7 +19,11 @@ div.linkbuttons {
   /* margin: 4px 2px; */
   cursor: pointer;
   border-radius: 16px;
-  flex-grow: 1;
+  flex: 1 1 0px;
+}
+
+.button-steam {
+  background-color: #66c0f4;
 }
 
 .button-itch-io {
