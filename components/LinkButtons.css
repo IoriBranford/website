@@ -4,7 +4,9 @@ div.linkbuttons {
   column-gap: 1rem;
 }
 
-.button {
+.button,
+.button-itch-io,
+.button-google-play {
   background-color: #1c87c9;
   border: none;
   color: white;
@@ -17,4 +19,12 @@ div.linkbuttons {
   cursor: pointer;
   border-radius: 16px;
   flex-grow: 1;
+}
+
+.button-itch-io {
+  background-color: #fa5c5c;
+}
+
+.button-google-play {
+  background-color: #0f9d58;
 }
