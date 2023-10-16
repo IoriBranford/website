@@ -6,6 +6,7 @@ import Gallery, {
 } from "../../components/Gallery";
 
 import Logo from "./assets/logo.png?logo";
+import LinkButtons, { StoreLinkButton } from "#root/components/LinkButtons";
 
 const ImageItems : Record<string, string> = import.meta.glob([
   './gallery/*.png', './gallery/*.jpg',
@@ -59,6 +60,19 @@ export function Page() {
         <Gallery items={GalleryItems} />
         <article style={{ textAlign: "left" }}>
           <About />
+          <h2 style={{ textAlign: "center" }}>Buy</h2>
+          <LinkButtons>
+            <StoreLinkButton
+              store="itch.io"
+              oses={["windows", "linux", "apple", "android",]}
+              href="https://ioribranford.itch.io/demonizer"
+            />
+            <StoreLinkButton
+              store="Steam"
+              oses={["windows", "linux"]}
+              href="https://store.steampowered.com/app/1091390/Demonizer"
+            />
+          </LinkButtons>
         </article>
       </section>
     </div>
