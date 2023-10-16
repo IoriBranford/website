@@ -55,7 +55,7 @@ export function Page() {
           <LinkButtons>
             <StoreLinkButton
               store="itch.io"
-              oses={["windows", "android", "linux", "apple", "html5"]}
+              oses={["windows", "linux", "apple", "android", "html5"]}
               href="https://ioribranford.itch.io/honey-guardian"
             />
             <StoreLinkButton
