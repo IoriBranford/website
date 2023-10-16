@@ -1,0 +1,40 @@
+import "../gamepage.css";
+import Gallery from "./Gallery.tsx";
+import LinkButtons, {
+  StoreLinkButton,
+} from "#root/components/LinkButtons";
+
+<div>
+  <h1>Honey Soldier</h1>
+  <section>
+    <Gallery />
+    <article style={{ textAlign: "left" }}>
+<>
+- Genre: arcade shooter
+- Players: 1
+- Released: Jun 19, 2022
+- For: Windows, LÖVE, Web, Android
+
+Jenny has two minutes to save her hive from invading insects. Power up her sting shot with honey crystals and shoot invaders coming from all directions!
+
+A short score-attack shmup in the "caravan" style. Made for [Gunner Parade Jam 2022] and ported to Android for [Android Port Jam 2023].
+
+[Gunner Parade Jam 2022]: https://itch.io/jam/gunner-parade-22
+[Android Port Jam 2023]: https://itch.io/jam/igdaf-portjam2023
+</>
+      <h2 style={{ textAlign: "center" }}>Play for Free</h2>
+      <LinkButtons>
+        <StoreLinkButton
+          store="itch.io"
+          oses={["windows", "linux", "apple", "android", "html5"]}
+          href="https://ioribranford.itch.io/honey-guardian"
+        />
+        <StoreLinkButton
+          store="Google Play"
+          oses={["android"]}
+          href="https://play.google.com/store/apps/details?id=com.ioribranford.honeysoldier"
+        />
+      </LinkButtons>
+    </article>
+  </section>
+</div>

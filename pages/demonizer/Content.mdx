@@ -1,8 +1,29 @@
+import "../gamepage.css";
+import Gallery from "./Gallery.tsx";
+
+import Logo from "./assets/logo.png?logo";
+import LinkButtons, { StoreLinkButton } from "#root/components/LinkButtons";
+
+<div>
+  <img
+    class="logo"
+    srcset={Logo}
+    alt="Demonizer logo"
+    width="640"
+    height="160"
+  />
+  <section>
+    <div style={{ textAlign: "left" }}>
+      <Gallery />
+<>
 - Genre: arcade shooter
 - Players: 1
 - Released: Oct 30, 2020
 - For: windows, mac, linux, android, raspberry pi, LÖVE
-
+</>
+    </div>
+    <article style={{ textAlign: "left" }}>
+<>
 The fantasy bullet battle to end monstergirl genocide! Turn hateful humans into lovable demons in this 90s arcade style shooter, inspired by Raiden Fighters, Strikers 1945, and Battle Garegga.
 
 The exiled princess Amelia has turned into a succubus and joined the peaceful monstergirl tribe. Then invaders arrive led by her sister Angelina. Fighting back with her newfound powers of hypnosis and demonization she departs to take on the kingdom in a desperate bid to save her new people.
@@ -15,3 +36,20 @@ The exiled princess Amelia has turned into a succubus and joined the peaceful mo
 - Rock out to a gritty, stompy YM2612 FM synth soundtrack
 - Rich retro visual customization - portrait or landscape, low or high res, smooth or sharp pixels, stretch or no stretch
 - A twist on the old monster-slaying story - includes free digital comic book revealing events before the game
+</>
+      <h2 style={{ textAlign: "center" }}>Buy</h2>
+      <LinkButtons>
+        <StoreLinkButton
+          store="itch.io"
+          oses={["windows", "linux", "apple", "android",]}
+          href="https://ioribranford.itch.io/demonizer"
+        />
+        <StoreLinkButton
+          store="Steam"
+          oses={["windows", "linux"]}
+          href="https://store.steampowered.com/app/1091390/Demonizer"
+        />
+      </LinkButtons>
+    </article>
+  </section>
+</div>
