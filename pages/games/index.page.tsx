@@ -1,5 +1,5 @@
 import './style.css';
-
+import AllGameProps from '../AllGameProps';
 export const documentProps = {
 	title: 'Games by Iori Branford',
 	description: "Monstergirl fantasy action games"
@@ -9,16 +9,9 @@ export function Page() {
 	return (
 		<div>
 			<section>
-				<Resource
-					title="Demonizer"
-					description="Succubus shooter"
-					href="/demonizer"
-				/>
-				<Resource
-					title="Honey Soldier"
-					description="Shoot hive invaders in 2 minutes"
-					href="/honey-soldier"
-				/>
+				{Object.entries(AllGameProps).map(([id, game]) => (
+					<Resource href={`/${id}`} {...game}/>
+				))}
 			</section>
 		</div>
 	);
