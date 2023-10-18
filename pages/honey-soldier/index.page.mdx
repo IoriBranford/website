@@ -3,9 +3,12 @@ import Gallery from "./Gallery.tsx";
 import LinkButtons, {
   StoreLinkButton,
 } from "#root/components/LinkButtons";
+import props from './props.json'
+
+export const documentProps = props
 
 <div>
-  <h1>Honey Soldier</h1>
+  <h1>{documentProps.title}</h1>
   <section>
     <Gallery />
     <article style={{ textAlign: "left" }}>
