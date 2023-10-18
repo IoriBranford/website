@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Bun (not 100% working on Vercel)
+bun.lockb
