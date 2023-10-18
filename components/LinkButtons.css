@@ -8,9 +8,11 @@ div.linkbuttons {
 .button-steam,
 .button-itch-io,
 .button-google-play {
-  background-color: #1c87c9;
-  border: none;
-  color: white;
+	background-color: #f1f1f1;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+	color: #222;
   /* padding: 0px 16px; */
   text-align: center;
   text-decoration: none;
@@ -22,14 +24,36 @@ div.linkbuttons {
   flex: 1 1 0px;
 }
 
+@media (prefers-color-scheme: dark) {
+  .button,
+  .button-steam,
+  .button-itch-io,
+  .button-google-play {
+    color: #ccc;
+		background-color: #161616;
+  }
+}
+
 .button-steam {
-  background-color: #66c0f4;
+  border-color: #66c0f4;
+}
+
+.button-steam:hover {
+  box-shadow: 0 25px 50px -12px #66c0f480;
 }
 
 .button-itch-io {
-  background-color: #fa5c5c;
+  border-color: #fa5c5c;
+}
+
+.button-itch-io:hover {
+  box-shadow: 0 25px 50px -12px #fa5c5c80;
 }
 
 .button-google-play {
-  background-color: #0f9d58;
+  border-color: #0f9d58;
+}
+
+.button-google-play:hover {
+  box-shadow: 0 25px 50px -12px #0f9d5880;
 }
