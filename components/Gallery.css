@@ -2,7 +2,7 @@ div.gallery {
 	justify-items: left;
 }
 
-.active, img.thumbnail, img.thumbnail-selected {
+img.active, iframe.active, img.thumbnail, img.thumbnail-selected {
 	width: 100%;
 	max-width: 100%;
 	height: auto;
@@ -17,7 +17,7 @@ div.gallery {
 	border: 1px solid transparent;
 }
 
-.active {
+img.active, iframe.active {
 	cursor: zoom-in;
 }
 
@@ -25,11 +25,11 @@ img.thumbnail, img.thumbnail-selected {
 	cursor: pointer;
 }
 
-.active:hover, img.thumbnail:hover {
+img.active:hover, iframe.active:hover, img.thumbnail:hover {
 	border: 1px dotted #000;
 }
 
-.active-selected, img.thumbnail-selected {
+img.active-selected, iframe.active-selected, img.thumbnail-selected {
 	border: 1px solid #000;
 	box-shadow: 0 25px 50px -12px #673ab888;
 }
@@ -49,14 +49,14 @@ section.thumbnailgrid {
 }
 
 @media (prefers-color-scheme: dark) {
-	.active, img.thumbnail, img.thumbnail-selected {
+	img.active, iframe.active, img.thumbnail, img.thumbnail-selected {
 		color: #ccc;
 		background-color: #161616;
 	}
-	.active:hover, img.thumbnail:hover {
+	img.active:hover, iframe.active:hover, img.thumbnail:hover {
 		border: 1px dotted #bbb;
 	}
-	.active-selected, img.thumbnail-selected {
+	img.active-selected, iframe.active-selected, img.thumbnail-selected {
 		border: 1px solid #bbb;
 	}
 }
