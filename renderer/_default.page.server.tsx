@@ -31,10 +31,10 @@ async function render(pageContext) {
 			<meta name="color-scheme" content="light dark" />
 			<meta name="description" content="${desc}" />
 			<title>${title}</title>
-			<script src="https://kit.fontawesome.com/a8b238c89b.js" crossorigin="anonymous"></script>
 		</head>
 		<body>
 			<div id="app">${dangerouslySkipEscape(pageHtml)}</div>
+			<script defer src="https://kit.fontawesome.com/a8b238c89b.js" crossorigin="anonymous"></script>
 		</body>
 		</html>`;
 
