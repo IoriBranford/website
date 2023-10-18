@@ -1,10 +1,10 @@
 import GameProps from "./GameProps"
 
 const GameImports: Record<string, GameProps> = import.meta.glob(
-  "./*/props.json",
+  "./*/index.page.mdx",
   {
     eager: true,
-    import: 'default'
+    import: 'documentProps'
   }
 )
 
