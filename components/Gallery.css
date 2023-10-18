@@ -27,11 +27,11 @@ img.thumbnail, img.thumbnail-selected {
 
 img.active:hover, iframe.active:hover, img.thumbnail:hover {
 	border: 1px dotted #000;
+	box-shadow: 0 25px 50px -12px #673ab888;
 }
 
 img.active-selected, iframe.active-selected, img.thumbnail-selected {
 	border: 1px solid #000;
-	box-shadow: 0 25px 50px -12px #673ab888;
 }
 
 section.thumbnailgrid {
