@@ -1,7 +1,6 @@
-
 export default function ReviewQuote({source, href, children}) {
-    return <div>
+    return <a href={href} class='resource'>
         {children}
-        {href ? <a href={href}>{source}</a> : source}
-    </div>
+        {source}
+    </a>
 }
