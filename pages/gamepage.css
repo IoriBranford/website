@@ -13,6 +13,7 @@ h2 {
 section {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+	row-gap: 1.5rem;
 	column-gap: 1.5rem;
 	justify-items: center;
 }
