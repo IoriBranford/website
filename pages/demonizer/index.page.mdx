@@ -1,5 +1,6 @@
 import "../gamepage.css";
 import Gallery from "./Gallery.tsx";
+import ReviewQuote from "#root/components/ReviewQuote.tsx";
 
 import Logo from "./assets/logo.png?logo";
 import LinkButtons, { StoreLinkButton } from "#root/components/LinkButtons";
@@ -45,7 +46,9 @@ The exiled princess Amelia has turned into a succubus and joined the peaceful mo
 </>
     </article>
   </section>
-  <h2>Buy</h2>
+<>
+## Buy
+</>
   <LinkButtons>
     <StoreLinkButton
       store="itch.io"
@@ -58,4 +61,25 @@ The exiled princess Amelia has turned into a succubus and joined the peaceful mo
       href="https://store.steampowered.com/app/1091390/Demonizer"
     />
   </LinkButtons>
+## Reviews
+  <section>
+    <ReviewQuote source='The Electric Underground' href="https://www.youtube.com/watch?v=F_kMbAAn8X8">
+      “absolutely fantastic. It is unique and worth your time...I love this visual style...it hit me with nostalgia in a way that a lot of these...'nostalgic' games just don't do for me”
+    </ReviewQuote>
+    <ReviewQuote source='Rice Digital' href='https://ricedigital.co.uk/blissful-death-demonizer/'>
+      “Its emphasis on conflict between humanoid-sized opponents makes for a pleasingly different feel to many other shoot ’em ups out there, and the feeling of gathering allies to fight alongside you as you progress is consistently enjoyable and satisfying.”
+    </ReviewQuote>
+    <ReviewQuote source='Isla de Monos' href='https://islademonos.com/analisis/demonizer-el-odio-al-diferente/'>
+      “everything is measured to the millimeter so that the experience is as satisfactory as possible....Iori Branford has graduated with a superb degree, unashamed, profound, intelligent, full of justice and feeling.”
+    </ReviewQuote>
+    <ReviewQuote source='RFGeneration' href='http://rfgeneration.com/podcasts/shmupclub/?name=2021-04-16_stcc_episode_033_demonizer.mp3'>
+      “as a first fully-realized shoot-em-up, this is a solid game and something that I can easily recommend to...enthusiast fans of the genre”
+    </ReviewQuote>
+  </section>
+  <section style={{gridTemplateColumns: '1fr'}}>
+    <article style={{maxWidth: '640px'}}>
+## Artistic statement
+Demonizer is my most personally meaningful work. Bringing together all that I love and believe in - exhilarating gameplay, charming fantasy characters, the ideal of peace and justice for all - Demonizer indulges a fantasy of changing hateful hearts and minds, and presents an ode to the outcast and oppressed youth fighting the cruelty and injustice of the old world.
+    </article>
+  </section>
 </div>
