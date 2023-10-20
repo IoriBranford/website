@@ -11,13 +11,13 @@ export const documentProps = {
 }
 
 <div>
-  <img
+  <h1><img
     class="logo"
     srcset={Logo}
-    alt="Demonizer logo"
+    alt="Demonizer"
     width="640"
     height="160"
-  />
+  /></h1>
   <section>
     <div style={{ textAlign: "left" }}>
       <Gallery />
@@ -43,19 +43,19 @@ The exiled princess Amelia has turned into a succubus and joined the peaceful mo
 - Rich retro visual customization - portrait or landscape, low or high res, smooth or sharp pixels, stretch or no stretch
 - A twist on the old monster-slaying story - includes free digital comic book revealing events before the game
 </>
-      <h2 style={{ textAlign: "center" }}>Buy</h2>
-      <LinkButtons>
-        <StoreLinkButton
-          store="itch.io"
-          oses={["windows", "linux", "apple", "android",]}
-          href="https://ioribranford.itch.io/demonizer"
-        />
-        <StoreLinkButton
-          store="Steam"
-          oses={["windows", "linux"]}
-          href="https://store.steampowered.com/app/1091390/Demonizer"
-        />
-      </LinkButtons>
     </article>
   </section>
+  <h2 style={{ textAlign: "center" }}>Buy</h2>
+  <LinkButtons>
+    <StoreLinkButton
+      store="itch.io"
+      oses={["windows", "linux", "apple", "android",]}
+      href="https://ioribranford.itch.io/demonizer"
+    />
+    <StoreLinkButton
+      store="Steam"
+      oses={["windows", "linux"]}
+      href="https://store.steampowered.com/app/1091390/Demonizer"
+    />
+  </LinkButtons>
 </div>
