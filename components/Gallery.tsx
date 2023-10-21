@@ -25,7 +25,7 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
           <img
             class={itemi == activeIndex ? "thumbnail-selected" : "thumbnail"}
             onClick={() => setActiveIndex(itemi)}
-            sizes="160px"
+            sizes="320px"
             {...item}
           />
         ))}
