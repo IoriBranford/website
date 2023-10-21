@@ -32,7 +32,7 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
       </section>
       {fullView ? (
         <div class="fullview" onClick={() => setFullView(false)}>
-          {fullElement ? fullElement : <img sizes="1280px" {...activeItem} />}
+          {fullElement ? fullElement : <img class='fullview' sizes="1280px" {...activeItem} />}
         </div>
       ) : (
         <></>

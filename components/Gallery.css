@@ -11,12 +11,12 @@ div.fullview {
 	display: flex;
 	background-color: #00000080;
 	justify-content: center;
+	align-items: center;
 	cursor: zoom-out;
 }
 
 img.active, iframe.active, img.thumbnail, img.thumbnail-selected {
 	width: 100%;
-	max-width: 100%;
 	height: auto;
 	object-fit: contain;
 	aspect-ratio: 16/9;
@@ -27,6 +27,11 @@ img.active, iframe.active, img.thumbnail, img.thumbnail-selected {
 	color: #222;
 	background-color: #f1f1f1;
 	border: 1px solid transparent;
+}
+
+img.active, iframe.active, img.thumbnail, img.thumbnail-selected, img.fullview {
+	max-width: 100%;
+	max-height: 100%;
 }
 
 img.active, iframe.active {
