@@ -1,5 +1,6 @@
 import "../gamepage.css";
-import Gallery from "./Gallery.tsx";
+import Gallery from "#root/components/Gallery.tsx";
+import GalleryItems from './GalleryItems.ts'
 import ReviewQuote from "#root/components/ReviewQuote.tsx";
 
 import Logo from "./assets/logo.png?logo";
@@ -21,7 +22,7 @@ export const documentProps = {
   /></h1>
   <section>
     <article>
-      <Gallery />
+      <Gallery items={GalleryItems}/>
 <>
 - Genre: arcade shooter
 - Players: 1

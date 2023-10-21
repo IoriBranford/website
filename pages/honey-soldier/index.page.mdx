@@ -1,5 +1,6 @@
 import "../gamepage.css";
-import Gallery from "./Gallery.tsx";
+import Gallery from "#root/components/Gallery.tsx";
+import GalleryItems from './GalleryItems.ts'
 import LinkButtons, {
   StoreLinkButton,
 } from "#root/components/LinkButtons";
@@ -13,7 +14,7 @@ export const documentProps = {
 <div>
   <h1>{documentProps.title}</h1>
   <section>
-    <Gallery />
+    <Gallery items={GalleryItems}/>
     <article>
 <>
 - Genre: arcade shooter
