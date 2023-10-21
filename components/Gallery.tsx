@@ -23,8 +23,12 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
       <section class="thumbnailgrid">
         {items.map((item, itemi) => (
           <img
-            class={itemi == activeIndex ? "thumbnail-selected" : "thumbnail"}
-            onClick={() => setActiveIndex(itemi)}
+            class={"thumbnail"}
+            onClick={() => {
+              setActiveIndex(itemi)
+              setFullView(true)
+            }}
+            onMouseOver={() => setActiveIndex(itemi)}
             sizes="320px"
             {...item}
           />
