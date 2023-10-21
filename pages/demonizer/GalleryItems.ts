@@ -19,13 +19,13 @@ const OriginalImages: Record<string, string> = import.meta.glob(
   }
 );
 
-// const GalleryComponentItems: Record<string, GalleryItem> = import.meta.glob(
-//   ["./gallery/*.tsx"],
-//   {
-//     eager: true,
-//     import: "default",
-//   }
-// );
+const ElementItems: Record<string, GalleryItem> = import.meta.glob(
+  ["./gallery/*.tsx"],
+  {
+    eager: true,
+    import: "default",
+  }
+);
 
 export default [
   ...Object.entries(ImageItems).map<GalleryItem>((item) => {
@@ -33,7 +33,8 @@ export default [
       src: OriginalImages[item[0]],
       srcset: item[1],
       alt: item[0],
+      fullElement: undefined
     };
   }),
-  // ...Object.values(GalleryComponentItems),
+  ...Object.values(ElementItems),
 ];
