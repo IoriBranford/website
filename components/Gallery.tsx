@@ -38,10 +38,18 @@ export interface GalleryItem {
 export default function Gallery({ items }: { items: GalleryItem[] }) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [fullView, setFullView] = useState<boolean>(false);
+  const activeItem = items[activeIndex]
   return (
     <GalleryContext.Provider value={{ setFullView }}>
       <div class="gallery">
-        {items[activeIndex].element}
+        <img
+          class="active"
+          sizes="640px"
+          src={activeItem.thumbnail}
+          srcset={activeItem.thumbnail}
+          alt={activeItem.caption}
+          onClick={() => setFullView(true)}
+        />
         <section class="thumbnailgrid">
           {items.map((item, itemi) => (
             <img
@@ -55,7 +63,12 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
         </section>
         {fullView ? (
           <div class="fullview" onClick={() => setFullView(false)}>
-            {items[activeIndex].element}
+            <img
+              sizes="1280px"
+              src={activeItem.thumbnail}
+              srcset={activeItem.thumbnail}
+              alt={activeItem.caption}
+            />
           </div>
         ) : (
           <></>
