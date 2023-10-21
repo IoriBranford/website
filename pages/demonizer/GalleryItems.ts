@@ -32,7 +32,7 @@ export default [
     return {
       src: OriginalImages[item[0]],
       srcset: item[1],
-      description: "",
+      alt: item[0],
     };
   }),
   // ...Object.values(GalleryComponentItems),
