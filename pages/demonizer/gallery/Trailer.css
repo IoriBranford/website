@@ -1,5 +1,5 @@
 iframe.video {
     aspect-ratio: 16/9;
-    max-width: 85%;
-    max-height: 85%;
+    width: 100vmin;
+    height: auto;
 }
