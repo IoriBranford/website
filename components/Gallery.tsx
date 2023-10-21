@@ -43,9 +43,11 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
             //     openFullView(itemi);
             //   }
             // }}
-            onFocus={() => {
-              activeView.current.scrollIntoView()
-              setActiveIndex(itemi)
+            onKeyUp={(e) => {
+              if (e.key == 'Tab') {
+                activeView.current.scrollIntoView()
+                setActiveIndex(itemi)
+              }
             }}
             onMouseOver={() => setActiveIndex(itemi)}
             sizes="320px"
