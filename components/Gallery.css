@@ -2,6 +2,18 @@ div.gallery {
 	justify-items: left;
 }
 
+div.fullview {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	background-color: #00000080;
+	justify-content: center;
+	cursor: zoom-out;
+}
+
 img.active, iframe.active, img.thumbnail, img.thumbnail-selected {
 	width: 100%;
 	max-width: 100%;
