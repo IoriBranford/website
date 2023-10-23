@@ -1,4 +1,5 @@
 import './style.css';
+import '#root/components/Resource.css'
 
 export const documentProps = {
 	title: 'Iori Branford',
