@@ -1,5 +1,6 @@
 import { JSX } from "preact/jsx-runtime";
 import "./LinkButtons.css";
+import "#root/components/Resource.css"
 import OsIcons from "./OsIcons";
 
 export function LinkButton({
@@ -7,7 +8,7 @@ export function LinkButton({
   children,
 }: JSX.HTMLAttributes<HTMLAnchorElement> & JSX.ElementChildrenAttribute) {
   return (
-    <a class="button" target="__blank" href={href}>
+    <a class="resource" target="__blank" href={href}>
       {children}
     </a>
   );
