@@ -1,0 +1,50 @@
+import "../../gamepage.css";
+import '#root/components/Resource.css'
+import Gallery from "#root/components/Gallery";
+import KeyArtItems from './keyart/GalleryItems'
+import CommissionItems from './commissions/GalleryItems'
+
+import ComicImg from './assets/comic.jpg'
+import Logo from "../assets/logo.png?logo";
+import LinkButtons, { LinkButton } from "#root/components/LinkButtons";
+
+export const documentProps = {
+    "title": "Demonizer - Bonus Materials",
+    "description": "Collection of bonus media for Demonizer"
+}
+
+<div>
+  <img
+    class="logo"
+    srcset={Logo}
+    alt="Demonizer"
+    width="640"
+    height="160"
+  />
+  <h1>Bonus Materials</h1>
+  <h2>Comic Book</h2>
+  <section style={{display: 'inline-grid'}}>
+    <img src={ComicImg} alt='Comic book preview' width={320}/>
+    <article style={{maxWidth: '320px'}}>
+      The story behind the misfit princess Amelia and her transformation into the game’s demonic hero.
+
+      16 pages and cover beautifully rendered by professional webcomic artist Cleo-san.
+      <LinkButtons>
+        <LinkButton
+          target='__blank'
+          href='https://drive.google.com/file/d/1ZSGdNSmunYMjp1hv_M388ZgOJr8xX3TI/view?usp=sharing'>
+          <h2><i class="fa-regular fa-file-pdf" />Read</h2>
+        </LinkButton>
+      </LinkButtons>
+    </article>
+  </section>
+  <section style={{display: 'inline-grid', gridTemplateColumns: '1fr'}}>
+    <h2>Key Visuals</h2>
+    For store capsules, press, physical covers (someday), etc.
+    <Gallery items={KeyArtItems} columns={2} />
+    <h2>Commissions</h2>
+    Various pieces of Amelia and friends commissioned during development, showing bits of the world she is fighting to protect or letting her meet other original characters. I enjoy the diversity of styles and interpretations.
+    <Gallery items={CommissionItems} />
+    <LinkButton href='/demonizer'><h2>Back to game</h2></LinkButton>
+  </section>
+</div>
