@@ -1,12 +1,19 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import "./Gallery.css";
+import { CSSProperties } from "preact/compat";
 
 export type GalleryItem = JSX.HTMLAttributes<HTMLImageElement> & {
   fullElement: JSX.Element | undefined;
 };
 
-export default function Gallery({ items }: { items: GalleryItem[] }) {
+export interface GalleryProps {
+  items: GalleryItem[];
+  columns: number | "auto";
+  showActive: boolean
+}
+
+export default function Gallery({ items, columns = "auto", showActive = false }: GalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
   const fullView = useRef<HTMLDivElement>();
@@ -23,16 +30,20 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
     if (isFullView) fullView.current.focus();
   }, [isFullView]);
 
+  let thumbGridStyle: CSSProperties = {};
+  if (columns !== "auto")
+    thumbGridStyle.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+
   return (
     <div class="gallery">
-      <img
+      {showActive ? <img
         ref={activeView}
         class="active"
         sizes="640px"
         onClick={() => setFullView(true)}
         {...activeItem}
-      />
-      <section class="thumbnailgrid">
+      /> : <></>}
+      <section class="thumbnailgrid" style={thumbGridStyle}>
         {items.map((item, itemi) => (
           <img
             tabIndex={0}
@@ -44,9 +55,9 @@ export default function Gallery({ items }: { items: GalleryItem[] }) {
             //   }
             // }}
             onKeyUp={(e) => {
-              if (e.key == 'Tab') {
-                activeView.current.scrollIntoView()
-                setActiveIndex(itemi)
+              if (e.key == "Tab") {
+                activeView.current.scrollIntoView();
+                setActiveIndex(itemi);
               }
             }}
             onMouseOver={() => setActiveIndex(itemi)}
