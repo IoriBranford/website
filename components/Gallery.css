@@ -34,12 +34,8 @@ img.active, iframe.active, img.thumbnail, img.fullview {
 	max-height: 100%;
 }
 
-img.active, iframe.active {
+img.active, iframe.active, img.thumbnail {
 	cursor: zoom-in;
-}
-
-img.thumbnail {
-	cursor: pointer;
 }
 
 img.active:hover, iframe.active:hover, img.thumbnail:hover {
