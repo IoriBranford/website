@@ -9,11 +9,12 @@ export type GalleryItem = JSX.HTMLAttributes<HTMLImageElement> & {
 
 export interface GalleryProps {
   items: GalleryItem[];
-  columns: number | "auto";
-  showActive: boolean
+  columns?: number | "auto";
+  showActive?: boolean
 }
 
-export default function Gallery({ items, columns = "auto", showActive = false }: GalleryProps) {
+export default function Gallery(props: GalleryProps) {
+  const { items, columns = "auto", showActive = false } = props
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
   const fullView = useRef<HTMLDivElement>();
