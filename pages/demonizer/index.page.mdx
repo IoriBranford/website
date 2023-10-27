@@ -5,7 +5,7 @@ import GalleryItems from './GalleryItems.ts'
 import ReviewQuote from "#root/components/ReviewQuote.tsx";
 
 import Logo from "./assets/logo.png?logo";
-import LinkButtons, { StoreLinkButton } from "#root/components/LinkButtons";
+import LinkButtons, { LinkButton, StoreLinkButton } from "#root/components/LinkButtons";
 
 export const documentProps = {
     "id": "demonizer",
@@ -14,13 +14,13 @@ export const documentProps = {
 }
 
 <div>
-  <h1><img
+  <img
     class="logo"
     srcset={Logo}
     alt="Demonizer"
     width="640"
     height="160"
-  /></h1>
+  />
   <section>
     <article>
       <Gallery items={GalleryItems} showActive={true}/>
@@ -48,9 +48,7 @@ The exiled princess Amelia has turned into a succubus and joined the peaceful mo
 </>
     </article>
   </section>
-<>
 ## Buy
-</>
   <LinkButtons>
     <StoreLinkButton
       store="itch.io"
@@ -62,6 +60,10 @@ The exiled princess Amelia has turned into a succubus and joined the peaceful mo
       oses={["windows", "linux"]}
       href="https://store.steampowered.com/app/1091390/Demonizer"
     />
+  </LinkButtons>
+  <br/>
+  <LinkButtons>
+    <LinkButton href='/demonizer/bonus'><h2>View Bonus Materials</h2></LinkButton>
   </LinkButtons>
 ## Reviews
   <section>
