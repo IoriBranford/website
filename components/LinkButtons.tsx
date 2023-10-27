@@ -6,9 +6,10 @@ import OsIcons from "./OsIcons";
 export function LinkButton({
   href,
   children,
+  target
 }: JSX.HTMLAttributes<HTMLAnchorElement> & JSX.ElementChildrenAttribute) {
   return (
-    <a class="resource" target="__blank" href={href}>
+    <a class="resource" target={target} href={href}>
       {children}
     </a>
   );
