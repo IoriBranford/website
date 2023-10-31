@@ -8,25 +8,40 @@ export const documentProps = {
 
 export function Page() {
 	return (
-		<div>
-			<img class='avatar' src='/avatar.png' alt="Iori Branford's avatar" height="256" width="256" />
-			<h1>Iori Branford</h1>
-			<section>
+		<div class='grid' style={{placeItems: 'center'}}>
+			<div>
+				<img class='avatar' src='/avatar.png' alt="Iori Branford's avatar" height="256" width="256" />
+				<h1>Iori Branford</h1>
+			</div>
+			<div>
 				<Resource
 					title="Games"
-					description="Games I've made"
+					description="My monstergirl fantasy games"
 					href="/games"
 				/>
-			</section>
+				<Resource
+					title="Links"
+					description="Sites I use"
+					href="/links"
+				/>
+				<Resource
+					title="Contact"
+					description="Get in touch"
+					href="/contact"
+				/>
+			</div>
 		</div>
 	);
 }
 
 function Resource(props) {
+	const {href, title, description} = props
 	return (
-		<a href={props.href} class="resource">
-			<h2>{props.title}</h2>
-			<p>{props.description}</p>
+		<a href={href}>
+			<hgroup>
+				<h3>{title}</h3>
+				<h4>{description}</h4>
+			</hgroup>
 		</a>
 	);
 }
