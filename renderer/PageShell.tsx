@@ -7,25 +7,27 @@ function PageShell({ pageContext, children }) {
 	return (
 		<PageContextProvider pageContext={pageContext}>
 			<Header url={pageContext.urlPathname} />
-			<main>{children}</main>
-			<footer>© 2023 Iori Branford</footer>
+			<main class='container'>{children}</main>
+			<footer class='container'>© 2023 Iori Branford</footer>
 		</PageContextProvider>
 	);
 }
 
+function PageNav({url, href, children}) {
+	return <li><a href={href} class={url==href ? 'primary' : 'secondary'}>{children}</a></li>
+}
+
 export function Header({ url }) {
 	return (
-		<header>
+		<header class='container'>
 			<nav>
-				<a href="/" class={url == '/' && 'active'}>
-					<div class='brand'>
-						<img width={32} height={32} src='/avatar.png' alt='Iori Branford avatar'/>
-						Iori Branford
-					</div>
-				</a>
-				<a href="/games" class={url == '/games' && 'active'}>
-					Games
-				</a>
+				<ul>
+					<li><a href='/'><img width={32} height={32} src='/avatar.png' alt='Iori Branford avatar'/> <b>Iori Branford</b></a></li>
+				</ul>
+				<ul>
+					<PageNav href='/' url={url}>Home</PageNav>
+					<PageNav href='/games' url={url}>Games</PageNav>
+				</ul>
 			</nav>
 		</header>
 	);
