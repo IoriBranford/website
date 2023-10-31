@@ -1,5 +1,3 @@
-{/* import "../gamepage.css"; */}
-{/* import '#root/components/Resource.css' */}
 import Gallery from "#root/components/Gallery.tsx";
 import GalleryItems from './gallery/_items'
 import LinkButtons, {
@@ -12,37 +10,39 @@ export const documentProps = {
     "description": "Shoot invaders out of your hive in 2 minutes!"
 }
 
-<div>
-  <h1>{documentProps.title}</h1>
-  <section>
-    <Gallery items={GalleryItems} showActive={true}/>
-    <article>
 <>
-- Genre: arcade shooter
-- Players: 1
-- Released: Jun 19, 2022
-- For: Windows, LÖVE, Web, Android
+  # {documentProps.title}
+  <div class='grid'>
+    <div>
+      <Gallery items={GalleryItems} showActive={true}/>
+      - Genre: arcade shooter
+      - Players: 1
+      - Released: Jun 19, 2022
+      - For: Windows, LÖVE, Web, Android
+    </div>
+    <div>
+      Jenny has two minutes to save her hive from invading insects. Power up her sting shot with honey crystals and shoot invaders coming from all directions!
 
-Jenny has two minutes to save her hive from invading insects. Power up her sting shot with honey crystals and shoot invaders coming from all directions!
+      A short score-attack shmup in the "caravan" style. Made for [Gunner Parade Jam 2022] and ported to Android for [Android Port Jam 2023].
 
-A short score-attack shmup in the "caravan" style. Made for [Gunner Parade Jam 2022] and ported to Android for [Android Port Jam 2023].
-
-[Gunner Parade Jam 2022]: https://itch.io/jam/gunner-parade-22
-[Android Port Jam 2023]: https://itch.io/jam/igdaf-portjam2023
+      [Gunner Parade Jam 2022]: https://itch.io/jam/gunner-parade-22
+      [Android Port Jam 2023]: https://itch.io/jam/igdaf-portjam2023
+      
+      <section>
+        ## Play for Free
+        <a target='__blank' href='https://ioribranford.itch.io/honey-guardian'>
+          <hgroup>
+            ### <i class='fa-brands fa-itch-io'/> itch.io
+            #### Windows/Linux/MacOS/Android/Browser
+          </hgroup>
+        </a>
+        <a target='__blank' href='https://play.google.com/store/apps/details?id=com.ioribranford.honeysoldier'>
+          <hgroup>
+            ### <i class='fa-brands fa-google-play'/> Google Play
+            #### Android
+          </hgroup>
+        </a>
+      </section>
+    </div>
+  </div>
 </>
-      <h2>Play for Free</h2>
-      <LinkButtons>
-        <StoreLinkButton
-          store="itch.io"
-          oses={["windows", "linux", "apple", "android", "html5"]}
-          href="https://ioribranford.itch.io/honey-guardian"
-        />
-        <StoreLinkButton
-          store="Google Play"
-          oses={["android"]}
-          href="https://play.google.com/store/apps/details?id=com.ioribranford.honeysoldier"
-        />
-      </LinkButtons>
-    </article>
-  </section>
-</div>
