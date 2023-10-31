@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
-// import "./Gallery.css";
+import "./Gallery.css";
 import { CSSProperties } from "preact/compat";
 
 export interface GalleryItemInfo {
@@ -92,23 +92,23 @@ export default function Gallery(props: GalleryProps) {
     thumbGridStyle.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 
   return (
-    <div class="gallery">
+    <>
       {showActive ? (
-        <img
-          ref={activeView}
-          class="active"
-          sizes="640px"
-          onClick={() => setFullView(true)}
-          {...activeItem}
-        />
+          <img
+            ref={activeView}
+            class="active"
+            sizes="640px"
+            onClick={() => setFullView(true)}
+            {...activeItem}
+          />
       ) : (
         <></>
       )}
-      <section class="thumbnailgrid" style={thumbGridStyle}>
-        {items.map((item, itemi) => (
+      <div class='grid' style={{justifyItems: 'center'}}>
+         {items.map((item, itemi) => (
           <img
             tabIndex={0}
-            class={"thumbnail"}
+            class="thumbnail"
             onClick={() => openFullView(itemi)}
             // onKeyPress={(e) => {
             //   if (e.key == "Enter") {
@@ -126,7 +126,7 @@ export default function Gallery(props: GalleryProps) {
             {...item}
           />
         ))}
-      </section>
+      </div>
       <div
         tabindex={-1}
         ref={fullView}
@@ -142,6 +142,6 @@ export default function Gallery(props: GalleryProps) {
         )}
         {info ? <FullViewInfo {...info}/> : <></>}
       </div>
-    </div>
-  );
+    </>
+  )
 }
