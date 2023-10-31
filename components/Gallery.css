@@ -18,7 +18,6 @@ div.fullview {
 }
 
 div.fullviewinfo {
-	max-height: 10%;
 	padding: 0.25rem 1rem;
 	border-radius: 0.5rem;
 	text-decoration: none;
@@ -43,6 +42,10 @@ img.active, iframe.active, img.thumbnail {
 
 img.fullview {
 	max-height: 85%;
+	max-width: 95%;
+	width: auto;
+	height: auto;
+	object-fit: contain;
 }
 
 img.active, iframe.active, img.thumbnail {
