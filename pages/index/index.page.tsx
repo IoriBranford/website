@@ -1,9 +1,10 @@
 // import './style.css';
 // import '#root/components/Resource.css'
+import AllGameProps from '../AllGameProps';
 
 export const documentProps = {
 	title: 'Iori Branford',
-	description: 'Maker of monstergirl fantasy action games'
+	description: 'Monstergirl fantasy action games'
 }
 
 export function Page() {
@@ -14,21 +15,13 @@ export function Page() {
 				<h1>Iori Branford</h1>
 			</div>
 			<div>
-				<Resource
-					title="Games"
-					description="My monstergirl fantasy games"
-					href="/games"
-				/>
-				<Resource
-					title="Links"
-					description="Sites I use"
-					href="/links"
-				/>
-				<Resource
-					title="Contact"
-					description="Get in touch"
-					href="/contact"
-				/>
+				<section>
+					{Object.entries(AllGameProps).map(([id, game]) => (
+						<Resource href={`/${id}`} {...game}/>
+					))}
+				</section>
+				<a href="/links"><h4>Links</h4></a>
+				<a href="/contact"><h4>Contact</h4></a>
 			</div>
 		</div>
 	);

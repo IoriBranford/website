@@ -25,7 +25,8 @@ export function Header({ url }) {
 				</ul>
 				<ul>
 					<PageNav href='/' url={url}>Home</PageNav>
-					<PageNav href='/games' url={url}>Games</PageNav>
+					<PageNav href='/demonizer' url={url}>Demonizer</PageNav>
+					<PageNav href='/honey-soldier' url={url}>Honey Soldier</PageNav>
 				</ul>
 			</nav>
 		</header>
