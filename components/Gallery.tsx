@@ -62,6 +62,13 @@ export const GalleryItems = (
   ];
 };
 
+function FullViewInfo({maker, makerLink, description}:GalleryItemInfo) {
+  return <div class='fullviewinfo'>
+    {description}
+    {maker == '' ? <></> : <p>By: {makerLink == '' ? maker : <a href={makerLink} target='__blank'>{maker}</a>}</p>}
+  </div>
+}
+
 export default function Gallery(props: GalleryProps) {
   const { items, columns = "auto", showActive = false } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -69,7 +76,7 @@ export default function Gallery(props: GalleryProps) {
   const fullView = useRef<HTMLDivElement>();
   const activeView = useRef<HTMLImageElement>();
   const activeItem = items[activeIndex];
-  const { fullElement } = activeItem;
+  const { fullElement, info } = activeItem;
 
   const openFullView = (itemi: number) => {
     setActiveIndex(itemi);
@@ -133,6 +140,7 @@ export default function Gallery(props: GalleryProps) {
         ) : (
           <img class="fullview" sizes="1280px" {...activeItem} />
         )}
+        {info ? <FullViewInfo {...info}/> : <></>}
       </div>
     </div>
   );

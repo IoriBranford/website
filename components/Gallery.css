@@ -9,10 +9,22 @@ div.fullview {
 	width: 100vw;
 	height: 100vh;
 	display: flex;
-	background-color: #00000080;
+	flex-direction: column;
+	row-gap: 1vh;
+	background-color: #000000C0;
 	justify-content: center;
 	align-items: center;
 	cursor: zoom-out;
+}
+
+div.fullviewinfo {
+	max-height: 10%;
+	padding: 0.25rem 1rem;
+	border-radius: 0.5rem;
+	text-decoration: none;
+	color: #222;
+	background-color: #f1f1f1;
+	border: 1px solid transparent;
 }
 
 img.active, iframe.active, img.thumbnail {
@@ -29,7 +41,11 @@ img.active, iframe.active, img.thumbnail {
 	border: 1px solid transparent;
 }
 
-img.active, iframe.active, img.thumbnail, img.fullview {
+img.fullview {
+	max-height: 85%;
+}
+
+img.active, iframe.active, img.thumbnail {
 	max-width: 100%;
 	max-height: 100%;
 }
@@ -58,6 +74,10 @@ section.thumbnailgrid {
 }
 
 @media (prefers-color-scheme: dark) {
+	div.fullviewinfo {
+		color: #ccc;
+		background-color: #161616;
+	}
 	img.active, iframe.active, img.thumbnail {
 		color: #ccc;
 		background-color: #161616;
