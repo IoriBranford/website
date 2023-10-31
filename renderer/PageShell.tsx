@@ -13,7 +13,9 @@ function PageShell({ pageContext, children }) {
 }
 
 function PageNav({url, href, children}) {
-	return <li><a href={href} class={url==href ? 'primary' : 'secondary'}>{children}</a></li>
+	return <li><a href={href} class={url==href ? 'primary' : 'secondary'}>
+		{url==href ? <b>{children}</b> : children}
+	</a></li>
 }
 
 export function Header({ url }) {
@@ -27,6 +29,9 @@ export function Header({ url }) {
 					<PageNav href='/' url={url}>Home</PageNav>
 					<PageNav href='/demonizer' url={url}>Demonizer</PageNav>
 					<PageNav href='/honey-soldier' url={url}>Honey Soldier</PageNav>
+					<PageNav href='/links' url={url}>Links</PageNav>
+					<PageNav href='/contact' url={url}>Contact</PageNav>
+					<PageNav href='/donate' url={url}>Donate</PageNav>
 				</ul>
 			</nav>
 		</header>
