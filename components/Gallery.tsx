@@ -65,7 +65,7 @@ export const GalleryItems = (
 function FullViewInfo({maker, makerLink, description}:GalleryItemInfo) {
   return <div class='fullviewinfo'>
     {description}
-    {maker == '' ? <></> : <p>By: {makerLink == '' ? maker : <a href={makerLink} target='__blank'>{maker}</a>}</p>}
+    {maker == '' ? <></> : <><br/>By: {makerLink == '' ? maker : <a href={makerLink} target='__blank'>{maker}</a>}</>}
   </div>
 }
 
