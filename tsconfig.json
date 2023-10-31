@@ -14,7 +14,7 @@
 		  "#root/*": ["./*"],
 		  "react": ["./node_modules/preact/compat/"],
 		  "react-dom": ["./node_modules/preact/compat/"]
-		}
+		},
+		"types": ["vite/client"]
 	},
-	"include": ["node_modules/vite/client.d.ts", "**/*"]
 }
