@@ -26,9 +26,13 @@ export function Header({ url }) {
 					<li><a href='/'><img width={32} height={32} src='/avatar.png' alt='Iori Branford avatar'/> <b>Iori Branford</b></a></li>
 				</ul>
 				<ul>
-					<PageNav href='/' url={url}>Home</PageNav>
-					<PageNav href='/demonizer' url={url}>Demonizer</PageNav>
-					<PageNav href='/honey-soldier' url={url}>Honey Soldier</PageNav>
+					<li><details role='list'>
+						<summary aria-haspopup="listbox" role="link">Games</summary>
+						<ul role="listbox">
+							<PageNav href='/demonizer' url={url}>Demonizer</PageNav>
+							<PageNav href='/honey-soldier' url={url}>Honey Soldier</PageNav>
+						</ul>
+					</details></li>
 					<PageNav href='/links' url={url}>Links</PageNav>
 					<PageNav href='/contact' url={url}>Contact</PageNav>
 					<PageNav href='/donate' url={url}>Donate</PageNav>
