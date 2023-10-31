@@ -1,5 +1,4 @@
 import { PageContextProvider } from './usePageContext';
-import '@picocss/pico/css/pico.min.css';
 
 export { PageShell };
 
@@ -7,8 +6,8 @@ function PageShell({ pageContext, children }) {
 	return (
 		<PageContextProvider pageContext={pageContext}>
 			<Header url={pageContext.urlPathname} />
-			<main class='container'>{children}</main>
-			<footer class='container'>© 2023 Iori Branford</footer>
+			<main>{children}</main>
+			<footer>© 2023 Iori Branford</footer>
 		</PageContextProvider>
 	);
 }
@@ -19,7 +18,7 @@ function PageNav({url, href, children}) {
 
 export function Header({ url }) {
 	return (
-		<header class='container'>
+		<header>
 			<nav>
 				<ul>
 					<li><a href='/'><img width={32} height={32} src='/avatar.png' alt='Iori Branford avatar'/> <b>Iori Branford</b></a></li>

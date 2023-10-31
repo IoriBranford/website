@@ -5,6 +5,7 @@ export const passToClient = ['pageProps', 'urlPathname'];
 import { renderToString } from 'preact-render-to-string';
 import { PageShell } from './PageShell';
 import { escapeInject, dangerouslySkipEscape } from 'vike/server';
+import CSS from '@picocss/pico/css/pico.min.css?url'
 
 async function render(pageContext) {
 	const { Page, pageProps } = pageContext;
@@ -27,13 +28,14 @@ async function render(pageContext) {
 		<head>
 			<meta charset="UTF-8" />
 			<link rel="icon" type="image/png" href="/avatar.png" />
+			<link rel="stylesheet" href="${CSS}">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<meta name="color-scheme" content="light dark" />
 			<meta name="description" content="${desc}" />
 			<title>${title}</title>
 			<script defer src="https://kit.fontawesome.com/a8b238c89b.js" crossorigin="anonymous"></script>
 		</head>
-		<body id='app'>
+		<body id='app' class='container'>
 			${dangerouslySkipEscape(pageHtml)}
 		</body>
 		</html>`;
