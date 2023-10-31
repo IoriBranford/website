@@ -12,7 +12,13 @@ const e : GalleryItem = {
     />
   ),
   srcset: Shot1,
-  alt: "Demonizer trailer"
+  alt: "Demonizer trailer",
+  info: {
+    file: "",
+    maker: "Iori Branford",
+    makerLink: "",
+    description: "Demonizer trailer"
+  }
 };
 
 export default e
