@@ -1,4 +1,4 @@
-import './OsIcons.css'
+// import './OsIcons.css'
 
 export default function OsIcons({oses}: {oses: string[]}) {
     return <>

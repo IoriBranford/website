@@ -1,5 +1,5 @@
 import { PageContextProvider } from './usePageContext';
-import './PageShell.css';
+import '@picocss/pico/css/pico.min.css';
 
 export { PageShell };
 

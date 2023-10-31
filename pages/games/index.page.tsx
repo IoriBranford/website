@@ -1,5 +1,5 @@
-import './style.css';
-import '#root/components/Resource.css'
+// import './style.css';
+// import '#root/components/Resource.css'
 import AllGameProps from '../AllGameProps';
 export const documentProps = {
 	title: 'Games by Iori Branford',

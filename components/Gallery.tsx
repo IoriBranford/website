@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
-import "./Gallery.css";
+// import "./Gallery.css";
 import { CSSProperties } from "preact/compat";
 
 export interface GalleryItemInfo {

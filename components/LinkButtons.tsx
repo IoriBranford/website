@@ -1,6 +1,6 @@
 import { JSX } from "preact/jsx-runtime";
-import "./LinkButtons.css";
-import "#root/components/Resource.css"
+// import "./LinkButtons.css";
+// import "#root/components/Resource.css"
 import OsIcons from "./OsIcons";
 
 export function LinkButton({
