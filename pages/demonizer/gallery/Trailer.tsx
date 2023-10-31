@@ -15,7 +15,7 @@ const e : GalleryItem = {
   alt: "Demonizer trailer",
   info: {
     file: "",
-    maker: "Iori Branford",
+    maker: "",
     makerLink: "",
     description: "Demonizer trailer"
   }
