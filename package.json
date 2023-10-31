@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mdx-js/rollup": "^2.3.0",
+    "@picocss/pico": "^1.5.10",
     "preact": "^10.16.0",
     "preact-render-to-string": "^6.2.0"
   },
