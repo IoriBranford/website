@@ -8,11 +8,11 @@ export const documentProps = {
 }
 
 export function Page() {
-	return (
+	return (<>
 		<div class='grid' style={{placeItems: 'center'}}>
 			<div>
 				<img class='avatar' src='/avatar.png' alt="Iori Branford's avatar" height="256" width="256" />
-				<h1>Iori Branford</h1>
+				<h1 style={{textAlign: 'center'}}>Iori Branford</h1>
 			</div>
 			<div>
 				<section>
@@ -20,11 +20,14 @@ export function Page() {
 						<Resource href={`/${id}`} {...game}/>
 					))}
 				</section>
-				<a href="/links"><h4>Links</h4></a>
-				<a href="/contact"><h4>Contact</h4></a>
+				<nav>
+					<ul><a href="/links"><h4>Links</h4></a></ul>
+					<ul><a href="/contact"><h4>Contact</h4></a></ul>
+					<ul><a href="/donate"><h4>Donate</h4></a></ul>
+				</nav>
 			</div>
 		</div>
-	);
+	</>);
 }
 
 function Resource(props) {
