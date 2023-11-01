@@ -103,17 +103,14 @@ export default function Gallery(props: GalleryProps) {
 
   return (
     <>
-      {showActive ? (
-          <img
-            ref={activeView}
-            class="active"
-            sizes="640px"
-            onClick={() => setFullView(true)}
-            {...activeItem}
-          />
-      ) : (
-        <></>
-      )}
+      <img
+        ref={activeView}
+        class="active"
+        style={!showActive && { display: 'none' }}
+        sizes="640px"
+        onClick={() => setFullView(true)}
+        {...activeItem}
+      />
       {rows.map((row, rowi) => (
         <div class='grid'>
          {row.map((item, itemi) => (
@@ -129,8 +126,7 @@ export default function Gallery(props: GalleryProps) {
               // }}
               onKeyUp={(e) => {
                 if (e.key == "Tab") {
-                  if (activeView.current)
-                    activeView.current.scrollIntoView();
+                  activeView.current.scrollIntoView();
                   setActiveIndex(rowi * columns + itemi);
                 }
               }}
