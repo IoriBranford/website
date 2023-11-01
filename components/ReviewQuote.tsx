@@ -1,6 +1,10 @@
 export default function ReviewQuote({source, href, children}) {
     return <a href={href} class='resource'>
-        {children}
-        {source}
+        <blockquote>
+            {children}
+            <footer>
+                <cite>{source}</cite>
+            </footer>
+        </blockquote>
     </a>
 }
