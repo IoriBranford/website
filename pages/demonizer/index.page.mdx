@@ -1,5 +1,3 @@
-{/* import "../gamepage.css"; */}
-{/* import '#root/components/Resource.css' */}
 import Gallery from "#root/components/Gallery.tsx";
 import GalleryItems from './gallery/_items'
 import ReviewQuote from "#root/components/ReviewQuote.tsx";
@@ -13,78 +11,84 @@ export const documentProps = {
     "description": "The fantasy bullet battle to end monstergirl genocide!"
 }
 
-<div>
+{/* <section>
   <img
     class="logo"
     srcset={Logo}
     alt="Demonizer"
     width="640"
     height="160"
+    style={{justifySelf:'center'}}
   />
-  <section>
-    <article>
-      <Gallery items={GalleryItems} showActive={true}/>
-<>
-- Genre: arcade shooter
-- Players: 1
-- Released: Oct 30, 2020
-- For: windows, mac, linux, android, raspberry pi, LÖVE
-</>
-    </article>
-    <article>
-<>
-The fantasy bullet battle to end monstergirl genocide! Turn hateful humans into lovable demons in this 90s arcade style shooter, inspired by Raiden Fighters, Strikers 1945, and Battle Garegga.
+</section> */}
 
-The exiled princess Amelia has turned into a succubus and joined the peaceful monstergirl tribe. Then invaders arrive led by her sister Angelina. Fighting back with her newfound powers of hypnosis and demonization she departs to take on the kingdom in a desperate bid to save her new people.
+# {documentProps.title}
+<div class='grid'>
+  <div>
+    <Gallery items={GalleryItems} showActive={true}/>
+    - Genre: arcade shooter
+    - Players: 1
+    - Released: Oct 30, 2020
+    - For: windows, mac, linux, android, raspberry pi, LÖVE
+  </div>
+  <div>
+    The fantasy bullet battle to end monstergirl genocide! Turn hateful humans into lovable demons in this 90s arcade style shooter, inspired by Raiden Fighters, Strikers 1945, and Battle Garegga.
 
-- Seven challenging hand-crafted levels packed with beautiful pixel art - defend your forest, fight through towns, break monstergirls out of dungeons, race against cavalry and more
-- Battle fearsome enemy forces - masses of infantry and artillery, nimble swordsmen and assassins, tricky spellcasters and mighty magical constructs
-- Capture their souls - transform them into fellow demons and watch their powers grow with yours
-- Simple game systems reward natural and intuitive play - stay alive, shoot and bomb, and the rest will follow
-- Three difficulty levels - beginners, enthusiasts, and experts can all enjoy
-- Rock out to a gritty, stompy YM2612 FM synth soundtrack
-- Rich retro visual customization - portrait or landscape, low or high res, smooth or sharp pixels, stretch or no stretch
-- A twist on the old monster-slaying story - includes free digital comic book revealing events before the game
-</>
-    </article>
-  </section>
-## Buy
-  <LinkButtons>
-    <StoreLinkButton
-      store="itch.io"
-      oses={["windows", "linux", "apple", "android",]}
-      href="https://ioribranford.itch.io/demonizer"
-    />
-    <StoreLinkButton
-      store="Steam"
-      oses={["windows", "linux"]}
-      href="https://store.steampowered.com/app/1091390/Demonizer"
-    />
-  </LinkButtons>
-  <br/>
-  <LinkButtons>
-    <LinkButton href='/demonizer/bonus'><h2>View Bonus Materials</h2></LinkButton>
-  </LinkButtons>
-  <br/>
-## Reviews
-  <section>
+    The exiled princess Amelia has turned into a succubus and joined the peaceful monstergirl tribe. Then invaders arrive led by her sister Angelina. Fighting back with her newfound powers of hypnosis and demonization she departs to take on the kingdom in a desperate bid to save her new people.
+
+    - Seven challenging hand-crafted levels packed with beautiful pixel art - defend your forest, fight through towns, break monstergirls out of dungeons, race against cavalry and more
+    - Battle fearsome enemy forces - masses of infantry and artillery, nimble swordsmen and assassins, tricky spellcasters and mighty magical constructs
+    - Capture their souls - transform them into fellow demons and watch their powers grow with yours
+    - Simple game systems reward natural and intuitive play - stay alive, shoot and bomb, and the rest will follow
+    - Three difficulty levels - beginners, enthusiasts, and experts can all enjoy
+    - Rock out to a gritty, stompy YM2612 FM synth soundtrack
+    - Rich retro visual customization - portrait or landscape, low or high res, smooth or sharp pixels, stretch or no stretch
+    - A twist on the old monster-slaying story - includes free digital comic book revealing events before the game
+  </div>
+</div>
+<section>
+  ## Get
+  <div class='grid'>
+    <a target='__blank' href='https://ioribranford.itch.io/demonizer'>
+      <hgroup>
+        ### <i class='fa-brands fa-itch-io'/> itch.io
+        #### Windows/Linux/MacOS/Android
+      </hgroup>
+    </a>
+    <a target='__blank' href='https://store.steampowered.com/app/1091390/Demonizer'>
+      <hgroup>
+        ### <i class='fa-brands fa-steam'/> Steam
+        #### Windows/Linux
+      </hgroup>
+    </a>
+    <a href='/demonizer/bonus'>
+      <hgroup>
+        ### <i class='fa-solid fa-paintbrush'/> Bonus materials
+        #### Free art and comic book
+      </hgroup>
+    </a>
+  </div>
+</section>
+<section>
+  ## Reviews
+  <div class='grid'>
     <ReviewQuote source='The Electric Underground' href="https://www.youtube.com/watch?v=F_kMbAAn8X8">
       “absolutely fantastic. It is unique and worth your time...I love this visual style...it hit me with nostalgia in a way that a lot of these...'nostalgic' games just don't do for me”
     </ReviewQuote>
     <ReviewQuote source='Rice Digital' href='https://ricedigital.co.uk/blissful-death-demonizer/'>
       “Its emphasis on conflict between humanoid-sized opponents makes for a pleasingly different feel to many other shoot ’em ups out there, and the feeling of gathering allies to fight alongside you as you progress is consistently enjoyable and satisfying.”
     </ReviewQuote>
+  </div>
+  <div class='grid'>
     <ReviewQuote source='Isla de Monos' href='https://islademonos.com/analisis/demonizer-el-odio-al-diferente/'>
       “everything is measured to the millimeter so that the experience is as satisfactory as possible....Iori Branford has graduated with a superb degree, unashamed, profound, intelligent, full of justice and feeling.”
     </ReviewQuote>
     <ReviewQuote source='RFGeneration' href='http://rfgeneration.com/podcasts/shmupclub/?name=2021-04-16_stcc_episode_033_demonizer.mp3'>
       “as a first fully-realized shoot-em-up, this is a solid game and something that I can easily recommend to...enthusiast fans of the genre”
     </ReviewQuote>
-  </section>
-  <section style={{gridTemplateColumns: '1fr'}}>
-    <article style={{maxWidth: '640px'}}>
-## Artistic statement
-Demonizer is my most personally meaningful work. Bringing together all that I love and believe in - exhilarating gameplay, charming fantasy characters, the ideal of peace and justice for all - Demonizer indulges a fantasy of changing hateful hearts and minds, and presents an ode to the outcast and oppressed youth fighting the cruelty and injustice of the old world.
-    </article>
-  </section>
-</div>
+  </div>
+</section>
+<section>
+  ## Artistic statement
+  Demonizer is my most personally meaningful work. Bringing together all that I love and believe in - exhilarating gameplay, charming fantasy characters, the ideal of peace and justice for all - Demonizer indulges a fantasy of changing hateful hearts and minds, and presents an ode to the outcast and oppressed youth fighting the cruelty and injustice of the old world.
+</section>
