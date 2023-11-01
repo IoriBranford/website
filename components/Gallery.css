@@ -38,7 +38,7 @@ img.active, iframe.active, img.thumbnail {
 	color: #222;
 	background-color: #f1f1f1;
 	border: 1px solid transparent;
-	margin-bottom: 1rem;
+	margin-bottom: 0.5rem;
 }
 
 img.fullview {
