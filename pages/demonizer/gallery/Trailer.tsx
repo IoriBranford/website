@@ -13,12 +13,6 @@ const e : GalleryItem = {
   ),
   srcset: Shot1,
   alt: "Demonizer trailer",
-  info: {
-    file: "",
-    maker: "",
-    makerLink: "",
-    description: "Demonizer trailer"
-  }
 };
 
 export default e
