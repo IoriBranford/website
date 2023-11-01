@@ -74,6 +74,11 @@ function FullViewInfo(info:GalleryItemInfo) {
   </div>
 }
 
+interface GalleryHistoryState {
+  items: GalleryItem[];
+  activeIndex: number;
+}
+
 export default function Gallery(props: GalleryProps) {
   const { items, columns = items.length, showActive = false } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -83,10 +88,36 @@ export default function Gallery(props: GalleryProps) {
   const activeItem = items[activeIndex];
   const { fullElement, info } = activeItem;
 
+  let backFromFullView:EventListener;
+  let forwardIntoFullView:EventListener;
+
+  backFromFullView = (e:PopStateEvent) => {
+    e.preventDefault()
+    history.replaceState(e.state, null)
+    window.removeEventListener('popstate', backFromFullView)
+    // window.addEventListener('hashchange', forwardIntoFullView)
+    setFullView(false)
+  }
+
   const openFullView = (itemi: number) => {
+    const state: GalleryHistoryState = {items, activeIndex: itemi}
+    history.pushState(state, null, '#fullview')
+    window.addEventListener('popstate', backFromFullView)
     setActiveIndex(itemi);
     setFullView(true);
   };
+
+  // forwardIntoFullView = (e:HashChangeEvent) => {
+  //   const state: GalleryHistoryState = history.state;
+  //   if (location.hash != '#fullview') return;
+  //   if (!state) return;
+  //   console.log(Object.is(state.items, items))
+  //   if (!Object.is(items, state.items)) return;
+  //   if (!state.activeIndex) return;
+  //   e.preventDefault()
+  //   window.removeEventListener('hashchange', forwardIntoFullView)
+  //   openFullView(state.activeIndex);
+  // }
 
   useEffect(() => {
     if (isFullView) fullView.current.focus();
@@ -108,7 +139,7 @@ export default function Gallery(props: GalleryProps) {
         class="active"
         style={!showActive && { display: 'none' }}
         sizes="640px"
-        onClick={() => setFullView(true)}
+        onClick={() => openFullView(activeIndex)}
         {...activeItem}
       />
       {rows.map((row, rowi) => (
@@ -144,8 +175,8 @@ export default function Gallery(props: GalleryProps) {
         ref={fullView}
         style={{ display: isFullView ? "flex" : "none" }}
         class="fullview"
-        onClick={() => setFullView(false)}
-        onKeyPress={() => setFullView(false)}
+        onClick={() => history.back()}
+        onKeyPress={() => history.back()}
       >
         {fullElement ? (
           fullElement
