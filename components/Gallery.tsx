@@ -11,7 +11,7 @@ export interface GalleryItemInfo {
 
 export type GalleryItem = JSX.HTMLAttributes<HTMLImageElement> & {
   fullElement?: JSX.Element;
-  info: GalleryItemInfo;
+  info?: GalleryItemInfo;
 };
 
 export interface GalleryProps {
@@ -61,10 +61,16 @@ export const GalleryItems = (
   ];
 };
 
-function FullViewInfo({maker, makerLink, description}:GalleryItemInfo) {
-  return <div class='fullviewinfo'>
+function ItemInfo({maker, makerLink, description}:GalleryItemInfo) {
+  return <>
     {description}
-    {maker == '' ? <></> : <><br/>By: {makerLink == '' ? maker : <a href={makerLink} target='__blank'>{maker}</a>}</>}
+    {maker == '' ? <></> : <><br/>by {makerLink == '' ? maker : <a href={makerLink} target='__blank'>{maker}</a>}</>}
+  </>
+}
+
+function FullViewInfo(info:GalleryItemInfo) {
+  return <div class='fullviewinfo'>
+    <ItemInfo {...info}/>
   </div>
 }
 
@@ -111,26 +117,29 @@ export default function Gallery(props: GalleryProps) {
       {rows.map((row, rowi) => (
         <div class='grid'>
          {row.map((item, itemi) => (
-          <img
-            tabIndex={0}
-            class="thumbnail"
-            onClick={() => openFullView(rowi * columns + itemi)}
-            // onKeyPress={(e) => {
-            //   if (e.key == "Enter") {
-            //     openFullView(itemi);
-            //   }
-            // }}
-            onKeyUp={(e) => {
-              if (e.key == "Tab") {
-                if (activeView.current)
-                  activeView.current.scrollIntoView();
-                setActiveIndex(rowi * columns + itemi);
-              }
-            }}
-            onMouseOver={() => setActiveIndex(rowi * columns + itemi)}
-            sizes="320px"
-            {...item}
-          />
+          <div>
+            <img
+              tabIndex={0}
+              class="thumbnail"
+              onClick={() => openFullView(rowi * columns + itemi)}
+              // onKeyPress={(e) => {
+              //   if (e.key == "Enter") {
+              //     openFullView(itemi);
+              //   }
+              // }}
+              onKeyUp={(e) => {
+                if (e.key == "Tab") {
+                  if (activeView.current)
+                    activeView.current.scrollIntoView();
+                  setActiveIndex(rowi * columns + itemi);
+                }
+              }}
+              onMouseOver={() => setActiveIndex(rowi * columns + itemi)}
+              sizes="320px"
+              {...item}
+            />
+            {item.info && <section><ItemInfo {...item.info}/></section>}
+          </div>
         ))}
         </div>
       ))}
