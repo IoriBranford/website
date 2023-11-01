@@ -26,6 +26,12 @@ div.fullviewinfo {
 	border: 1px solid transparent;
 }
 
+@media (max-width: 991px) {
+	img.active {
+		display: none;
+	}
+}
+
 img.active, iframe.active, img.thumbnail {
 	width: 100%;
 	height: auto;
