@@ -17,7 +17,7 @@ export type GalleryItem = JSX.HTMLAttributes<HTMLImageElement> & {
 
 export interface GalleryProps {
   items: GalleryItem[];
-  columns?: number | "auto";
+  maxColumns?: number;
   showActive?: boolean;
 }
 
@@ -70,7 +70,7 @@ function FullViewInfo({maker, makerLink, description}:GalleryItemInfo) {
 }
 
 export default function Gallery(props: GalleryProps) {
-  const { items, columns = "auto", showActive = false } = props;
+  const { items, maxColumns, showActive = false } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
   const fullView = useRef<HTMLDivElement>();
@@ -87,9 +87,18 @@ export default function Gallery(props: GalleryProps) {
     if (isFullView) fullView.current.focus();
   }, [isFullView]);
 
-  let thumbGridStyle: CSSProperties = {};
-  if (columns !== "auto")
-    thumbGridStyle.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+  const rows = []
+  if (maxColumns) {
+    if (items.length > maxColumns) {
+      rows.pop()
+      let i: number
+      for (i = 0; i < items.length; i += maxColumns) {
+        rows.push(items.slice(i, Math.min(i + maxColumns, items.length)))
+      }
+    }
+  } else {
+    rows.push(items)
+  }
 
   return (
     <>
@@ -104,12 +113,13 @@ export default function Gallery(props: GalleryProps) {
       ) : (
         <></>
       )}
-      <div class='grid' style={{justifyItems: 'center'}}>
-         {items.map((item, itemi) => (
+      {rows.map((row, rowi) => (
+        <div class='grid'>
+         {row.map((item, itemi) => (
           <img
             tabIndex={0}
             class="thumbnail"
-            onClick={() => openFullView(itemi)}
+            onClick={() => openFullView(rowi * maxColumns + itemi)}
             // onKeyPress={(e) => {
             //   if (e.key == "Enter") {
             //     openFullView(itemi);
@@ -121,12 +131,13 @@ export default function Gallery(props: GalleryProps) {
                 setActiveIndex(itemi);
               }
             }}
-            onMouseOver={() => setActiveIndex(itemi)}
+            onMouseOver={() => setActiveIndex(rowi * maxColumns + itemi)}
             sizes="320px"
             {...item}
           />
         ))}
-      </div>
+        </div>
+      ))}
       <div
         tabindex={-1}
         ref={fullView}
