@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import "./Gallery.css";
-import { CSSProperties } from "preact/compat";
 
 export interface GalleryItemInfo {
   file: string;
@@ -17,22 +16,22 @@ export type GalleryItem = JSX.HTMLAttributes<HTMLImageElement> & {
 
 export interface GalleryProps {
   items: GalleryItem[];
-  maxColumns?: number;
+  columns?: number;
   showActive?: boolean;
 }
 
-function csvToArr<T = Object>(stringVal: string, splitter: string = ',') {
-  const [keys, ...rest] = stringVal
+function csvToArr<T = Object>(csv: string, sep: string|RegExp = /,|[\n\r]+/) {
+  const [keys, ...rows] = csv
     .trim()
     .split("\n")
-    .map((item) => item.split(splitter));
+    .map((item) => item.split(sep).filter(s => s !== ''));
 
-  const formedArr = rest.map((item) => {
-    const object = {} as T;
-    keys.forEach((key, index) => (object[key] = item[index]));
-    return object;
-  });
-  return formedArr;
+  return rows.map((item) =>
+    keys.reduce((obj, key, i) => {
+      obj[key] = item[i]
+      return obj
+    }, {} as T)
+  );
 }
 
 export const GalleryItems = (
@@ -70,7 +69,7 @@ function FullViewInfo({maker, makerLink, description}:GalleryItemInfo) {
 }
 
 export default function Gallery(props: GalleryProps) {
-  const { items, maxColumns, showActive = false } = props;
+  const { items, columns = items.length, showActive = false } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
   const fullView = useRef<HTMLDivElement>();
@@ -87,14 +86,10 @@ export default function Gallery(props: GalleryProps) {
     if (isFullView) fullView.current.focus();
   }, [isFullView]);
 
-  const rows = []
-  if (maxColumns) {
-    if (items.length > maxColumns) {
-      rows.pop()
-      let i: number
-      for (i = 0; i < items.length; i += maxColumns) {
-        rows.push(items.slice(i, Math.min(i + maxColumns, items.length)))
-      }
+  const rows: GalleryItem[][] = []
+  if (items.length > columns) {
+    for (let i = 0; i < items.length; i += columns) {
+      rows.push(items.slice(i, Math.min(i + columns, items.length)))
     }
   } else {
     rows.push(items)
@@ -119,7 +114,7 @@ export default function Gallery(props: GalleryProps) {
           <img
             tabIndex={0}
             class="thumbnail"
-            onClick={() => openFullView(rowi * maxColumns + itemi)}
+            onClick={() => openFullView(rowi * columns + itemi)}
             // onKeyPress={(e) => {
             //   if (e.key == "Enter") {
             //     openFullView(itemi);
@@ -127,11 +122,12 @@ export default function Gallery(props: GalleryProps) {
             // }}
             onKeyUp={(e) => {
               if (e.key == "Tab") {
-                activeView.current.scrollIntoView();
-                setActiveIndex(itemi);
+                if (activeView.current)
+                  activeView.current.scrollIntoView();
+                setActiveIndex(rowi * columns + itemi);
               }
             }}
-            onMouseOver={() => setActiveIndex(rowi * maxColumns + itemi)}
+            onMouseOver={() => setActiveIndex(rowi * columns + itemi)}
             sizes="320px"
             {...item}
           />
