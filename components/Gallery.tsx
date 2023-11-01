@@ -75,13 +75,19 @@ function FullViewInfo(info:GalleryItemInfo) {
   </div>
 }
 
-interface GalleryHistoryState {
-  items: GalleryItem[];
-  activeIndex: number;
+function extractIndexFromHash(hash:string, galleryId:string, numItems:number): number {
+  hash = hash || ''
+  if (hash == '') return;
+  const [_, id, i] = hash.match(/#([^:]+):(\d+)/)
+  if (id != galleryId) return;
+  if (!i) return;
+  const itemi = parseInt(i)
+  if (itemi < 0 || itemi >= numItems) return
+  return itemi
 }
 
 export default function Gallery(props: GalleryProps) {
-  const { items, columns = items.length, showActive = false } = props;
+  const { id, items, columns = items.length, showActive = false } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
   const fullView = useRef<HTMLDivElement>();
@@ -89,39 +95,22 @@ export default function Gallery(props: GalleryProps) {
   const activeItem = items[activeIndex];
   const { fullElement, info } = activeItem;
 
-  let backFromFullView:EventListener;
-  let forwardIntoFullView:EventListener;
-
-  backFromFullView = (e:PopStateEvent) => {
-    e.preventDefault()
-    history.replaceState(e.state, null)
-    window.removeEventListener('popstate', backFromFullView)
-    // window.addEventListener('hashchange', forwardIntoFullView)
-    setFullView(false)
+  const handleHash = (e?:HashChangeEvent) => {
+    if (e) e.preventDefault()
+    const itemi = extractIndexFromHash(location.hash, id, items.length)
+    if (itemi) setActiveIndex(itemi)
+    setFullView(itemi != null)
   }
 
-  const openFullView = (itemi: number) => {
-    const state: GalleryHistoryState = {items, activeIndex: itemi}
-    history.pushState(state, null, '#fullview')
-    window.addEventListener('popstate', backFromFullView)
-    setActiveIndex(itemi);
-    setFullView(true);
-  };
-
-  // forwardIntoFullView = (e:HashChangeEvent) => {
-  //   const state: GalleryHistoryState = history.state;
-  //   if (location.hash != '#fullview') return;
-  //   if (!state) return;
-  //   console.log(Object.is(state.items, items))
-  //   if (!Object.is(items, state.items)) return;
-  //   if (!state.activeIndex) return;
-  //   e.preventDefault()
-  //   window.removeEventListener('hashchange', forwardIntoFullView)
-  //   openFullView(state.activeIndex);
-  // }
+  useEffect(() => {
+    window.addEventListener('hashchange', handleHash)
+    handleHash()
+  }, [])
 
   useEffect(() => {
-    if (isFullView) fullView.current.focus();
+    if (isFullView) {
+      fullView.current.focus();
+    }
   }, [isFullView]);
 
   const rows: GalleryItem[][] = []
@@ -135,37 +124,38 @@ export default function Gallery(props: GalleryProps) {
 
   return (
     <>
-      <img
-        ref={activeView}
-        class="active"
-        style={!showActive && { display: 'none' }}
-        sizes="640px"
-        onClick={() => openFullView(activeIndex)}
-        {...activeItem}
-      />
+      <a href={`#${id}:${activeIndex}`}>
+        <img
+          ref={activeView}
+          class="active"
+          style={!showActive && { display: 'none' }}
+          sizes="640px"
+          {...activeItem}
+        />
+      </a>
       {rows.map((row, rowi) => (
         <div class='grid'>
          {row.map((item, itemi) => (
           <div>
-            <img
-              tabIndex={0}
-              class="thumbnail"
-              onClick={() => openFullView(rowi * columns + itemi)}
-              // onKeyPress={(e) => {
-              //   if (e.key == "Enter") {
-              //     openFullView(itemi);
-              //   }
-              // }}
-              onKeyUp={(e) => {
-                if (e.key == "Tab") {
-                  activeView.current.scrollIntoView();
-                  setActiveIndex(rowi * columns + itemi);
-                }
-              }}
-              onMouseOver={() => setActiveIndex(rowi * columns + itemi)}
-              sizes="320px"
-              {...item}
-            />
+            <a href={`#${id}:${rowi * columns + itemi}`}>
+              <img
+                class="thumbnail"
+                // onKeyPress={(e) => {
+                //   if (e.key == "Enter") {
+                //     openFullView(itemi);
+                //   }
+                // }}
+                onKeyUp={(e) => {
+                  if (e.key == "Tab") {
+                    activeView.current.scrollIntoView();
+                    setActiveIndex(rowi * columns + itemi);
+                  }
+                }}
+                onMouseOver={() => setActiveIndex(rowi * columns + itemi)}
+                sizes="320px"
+                {...item}
+              />
+            </a>
             {item.info && <section><ItemInfo {...item.info}/></section>}
           </div>
         ))}
