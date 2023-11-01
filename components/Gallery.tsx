@@ -15,6 +15,7 @@ export type GalleryItem = JSX.HTMLAttributes<HTMLImageElement> & {
 };
 
 export interface GalleryProps {
+  id: string;
   items: GalleryItem[];
   columns?: number;
   showActive?: boolean;
