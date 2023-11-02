@@ -78,11 +78,11 @@ function FullViewInfo(info:GalleryItemInfo) {
 function extractIndexFromHash(hash:string, galleryId:string, numItems:number): number {
   hash = hash || ''
   if (hash == '') return;
-  const [_, id, i] = hash.match(/#([^:]+):(\d+)/)
+  const [_, id, i] = hash.match(/#?([^:]+):(\d+)/)
   if (id != galleryId) return;
   if (!i) return;
   const itemi = parseInt(i)
-  if (itemi < 0 || itemi >= numItems) return
+  if (isNaN(itemi) || itemi < 0 || itemi >= numItems) return
   return itemi
 }
 
@@ -98,8 +98,8 @@ export default function Gallery(props: GalleryProps) {
   const handleHash = (e?:HashChangeEvent) => {
     if (e) e.preventDefault()
     const itemi = extractIndexFromHash(location.hash, id, items.length)
-    if (itemi) setActiveIndex(itemi)
-    setFullView(itemi != null)
+    if (itemi != undefined) setActiveIndex(itemi)
+    setFullView(itemi != undefined)
   }
 
   useEffect(() => {
