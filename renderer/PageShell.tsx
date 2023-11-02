@@ -7,7 +7,7 @@ function PageShell({ pageContext, children }) {
 		<PageContextProvider pageContext={pageContext}>
 			<Header url={pageContext.urlPathname} />
 			<main>{children}</main>
-			<footer>© 2023 Iori Branford</footer>
+			<section>© 2023 Iori Branford</section>
 		</PageContextProvider>
 	);
 }
@@ -20,7 +20,6 @@ function PageNav({url, href, children}) {
 
 export function Header({ url }) {
 	return (
-		<header>
 			<nav>
 				<ul>
 					<li><a href='/'><img width={32} height={32} src='/avatar.png' alt='Iori Branford avatar'/> <b>Iori Branford</b></a></li>
@@ -38,6 +37,5 @@ export function Header({ url }) {
 					<PageNav href='/donate' url={url}>Donate</PageNav>
 				</ul>
 			</nav>
-		</header>
 	);
 }
