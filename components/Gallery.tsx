@@ -70,9 +70,9 @@ function ItemInfo({maker, makerLink, description}:GalleryItemInfo) {
 }
 
 function FullViewInfo(info:GalleryItemInfo) {
-  return <div class='fullviewinfo'>
+  return <article class='fullviewinfo'>
     <ItemInfo {...info}/>
-  </div>
+  </article>
 }
 
 function extractIndexFromHash(hash:string, galleryId:string, numItems:number): number {
@@ -88,7 +88,7 @@ function extractIndexFromHash(hash:string, galleryId:string, numItems:number): n
 
 function Thumbnail({ galleryId, item, itemi, onKeyUp, onMouseOver }) {
   return (
-    <a tabIndex={0} role='button' class='secondary' href={`#${galleryId}:${itemi}`}>
+    <a tabIndex={0} role='button' class='secondary thumbnail' href={`#${galleryId}:${itemi}`}>
       <img
         class="thumbnail"
         onKeyUp={onKeyUp}
@@ -181,7 +181,7 @@ export default function Gallery(props: GalleryProps) {
       <div
         tabindex={-1}
         ref={fullView}
-        style={{ display: isFullView ? "flex" : "none" }}
+        style={isFullView ? undefined : { display: "none" }}
         class="fullview"
         onClick={() => history.back()}
         onKeyPress={() => history.back()}
