@@ -88,7 +88,7 @@ function extractIndexFromHash(hash:string, galleryId:string, numItems:number): n
 
 function Thumbnail({ galleryId, item, itemi, onKeyUp, onMouseOver }) {
   return (
-    <a tabIndex={0} href={`#${galleryId}:${itemi}`}>
+    <a tabIndex={0} role='button' class='secondary' href={`#${galleryId}:${itemi}`}>
       <img
         class="thumbnail"
         onKeyUp={onKeyUp}
@@ -147,11 +147,12 @@ export default function Gallery(props: GalleryProps) {
 
   return (
     <>
-      <a tabIndex={0} href={`#${id}:${activeIndex}`}>
+      <a tabIndex={0} role='button' class='secondary'
+          style={!showActive && { display: 'none' }}
+          href={`#${id}:${activeIndex}`}>
         <img
           ref={activeView}
           class="active"
-          style={!showActive && { display: 'none' }}
           sizes="640px"
           {...activeItem}
         />
