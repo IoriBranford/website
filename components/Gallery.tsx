@@ -86,6 +86,20 @@ function extractIndexFromHash(hash:string, galleryId:string, numItems:number): n
   return itemi
 }
 
+function Thumbnail({ galleryId, item, itemi, onKeyUp, onMouseOver }) {
+  return (
+    <a tabIndex={0} href={`#${galleryId}:${itemi}`}>
+      <img
+        class="thumbnail"
+        onKeyUp={onKeyUp}
+        onMouseOver={onMouseOver}
+        sizes="320px"
+        {...item}
+      />
+    </a>
+  );
+}
+
 export default function Gallery(props: GalleryProps) {
   const { id, items, columns = items.length, showActive = false } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -144,30 +158,29 @@ export default function Gallery(props: GalleryProps) {
       </a>
       {rows.map((row, rowi) => (
         <div class='grid'>
-         {row.map((item, itemi) => (
-          <div>
-            <a tabIndex={0} href={`#${id}:${rowi * columns + itemi}`}>
-              <img
-                class="thumbnail"
-                // onKeyPress={(e) => {
-                //   if (e.key == "Enter") {
-                //     openFullView(itemi);
-                //   }
-                // }}
-                onKeyUp={(e) => {
-                  if (e.key == "Tab") {
+          {row.map((item, itemi) => {
+            const i = rowi * columns + itemi
+            const thumbnail = <Thumbnail galleryId={id} item={item} itemi={i}
+              onKeyUp={(e: KeyboardEvent) => {
+                if (e.key == "Tab") {
+                  if (showActive)
                     activeView.current.scrollIntoView();
-                    setActiveIndex(rowi * columns + itemi);
-                  }
-                }}
-                onMouseOver={() => setActiveIndex(rowi * columns + itemi)}
-                sizes="320px"
-                {...item}
-              />
-            </a>
-            {item.info && <section><ItemInfo {...item.info}/></section>}
-          </div>
-        ))}
+                  setActiveIndex(i);
+                }
+              }}
+              onMouseOver={() => setActiveIndex(i)}/>
+
+            const {info} = item
+            if (info)
+              return (
+                <div>
+                  {thumbnail}
+                  <section><ItemInfo {...item.info}/></section>
+                </div>
+              )
+
+            return thumbnail;
+          })}
         </div>
       ))}
       <div
