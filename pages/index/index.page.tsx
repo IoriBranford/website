@@ -14,18 +14,18 @@ export function Page() {
 				<img class='avatar' src='/avatar.png' alt="Iori Branford's avatar" height="256" width="256" />
 				<h1 style={{textAlign: 'center'}}>Iori Branford</h1>
 			</div>
-			<div>
-				<section>
+			<section>
+				<div class='grid'>
 					{Object.entries(AllGameProps).map(([id, game]) => (
 						<Resource href={`/${id}`} {...game}/>
 					))}
-				</section>
-				<nav>
-					<ul><a href="/links"><h4>Links</h4></a></ul>
-					<ul><a href="/contact"><h4>Contact</h4></a></ul>
-					<ul><a href="/donate"><h4>Donate</h4></a></ul>
-				</nav>
-			</div>
+				</div>
+				<div class='grid' style={{textAlign: 'center'}}>
+					<a href="/links"><b><i class='fa-solid fa-link'/> Links</b></a>
+					<a href="/contact"><b><i class='fa-solid fa-message'/> Contact</b></a>
+					<a href="/donate"><b><i class='fa-solid fa-circle-dollar-to-slot'/> Donate</b></a>
+				</div>
+			</section>
 		</div>
 	</>);
 }
@@ -34,10 +34,8 @@ function Resource(props) {
 	const {href, title, description} = props
 	return (
 		<a href={href}>
-			<hgroup>
-				<h3>{title}</h3>
-				<h4>{description}</h4>
-			</hgroup>
+			<b>{title}</b>
+			<p>{description}</p>
 		</a>
 	);
 }
