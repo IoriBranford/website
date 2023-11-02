@@ -27,7 +27,7 @@ div.fullviewinfo {
 }
 
 @media (max-width: 991px) {
-	img.active {
+	a.active {
 		display: none;
 	}
 }

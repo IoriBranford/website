@@ -147,7 +147,7 @@ export default function Gallery(props: GalleryProps) {
 
   return (
     <>
-      <a tabIndex={0} role='button' class='secondary'
+      <a tabIndex={0} role='button' class='secondary active'
           style={!showActive && { display: 'none' }}
           href={`#${id}:${activeIndex}`}>
         <img
