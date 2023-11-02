@@ -158,29 +158,23 @@ export default function Gallery(props: GalleryProps) {
         />
       </a>
       {rows.map((row, rowi) => (
-        <div class='grid'>
-          {row.map((item, itemi) => {
-            const i = rowi * columns + itemi
-            const thumbnail = <Thumbnail galleryId={id} item={item} itemi={i}
-              onKeyUp={(e: KeyboardEvent) => {
-                if (e.key == "Tab") {
-                  if (showActive)
-                    activeView.current.scrollIntoView();
-                  setActiveIndex(i);
-                }
-              }}
-              onMouseOver={() => setActiveIndex(i)}/>
-
-            const {info} = item
-            if (info)
-              return (
-                <div>
-                  {thumbnail}
-                  <section><ItemInfo {...item.info}/></section>
-                </div>
-              )
-
-            return thumbnail;
+        <div class='grid' style={{justifyItems: 'center'}}>
+          {row.map((item, rowitemi) => {
+            const itemi = rowi * columns + rowitemi
+            return (
+              <div>
+                <Thumbnail galleryId={id} item={item} itemi={itemi}
+                  onKeyUp={(e: KeyboardEvent) => {
+                    if (e.key == "Tab") {
+                      if (showActive)
+                        activeView.current.scrollIntoView();
+                      setActiveIndex(itemi);
+                    }
+                  }}
+                  onMouseOver={() => setActiveIndex(itemi)}/>
+                {info && <section><ItemInfo {...item.info}/></section>}
+              </div>
+            )
           })}
         </div>
       ))}
