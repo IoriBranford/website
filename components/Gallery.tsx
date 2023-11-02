@@ -103,8 +103,17 @@ export default function Gallery(props: GalleryProps) {
   }
 
   useEffect(() => {
+    const hash = location.hash
+    const itemi = extractIndexFromHash(hash, id, items.length)
+    if (itemi != undefined) {
+      if (history.state != hash) {
+        history.replaceState('', '', location.pathname)
+        history.pushState(hash, '', hash)
+      }
+      setActiveIndex(itemi)
+      setFullView(true)
+    }
     window.addEventListener('hashchange', handleHash)
-    handleHash()
   }, [])
 
   useEffect(() => {
