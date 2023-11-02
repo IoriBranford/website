@@ -124,7 +124,7 @@ export default function Gallery(props: GalleryProps) {
 
   return (
     <>
-      <a href={`#${id}:${activeIndex}`}>
+      <a tabIndex={0} href={`#${id}:${activeIndex}`}>
         <img
           ref={activeView}
           class="active"
@@ -137,7 +137,7 @@ export default function Gallery(props: GalleryProps) {
         <div class='grid'>
          {row.map((item, itemi) => (
           <div>
-            <a href={`#${id}:${rowi * columns + itemi}`}>
+            <a tabIndex={0} href={`#${id}:${rowi * columns + itemi}`}>
               <img
                 class="thumbnail"
                 // onKeyPress={(e) => {
