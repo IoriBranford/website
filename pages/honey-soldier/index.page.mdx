@@ -17,10 +17,12 @@ export const documentProps = {
   <div class='grid'>
     <div>
       <Gallery id='media' items={GalleryItems} showActive={true}/>
-      - Genre: arcade shooter
-      - Players: 1
-      - Released: Jun 19, 2022
-      - For: Windows, LÖVE, Web, Android
+      <article style={{marginTop: '1rem', marginBottom: '1rem', paddingTop: '1rem', paddingBottom: '0.25rem'}}>
+        - Genre: arcade shooter
+        - Players: 1
+        - Released: Jun 19, 2022
+        - For: Windows, LÖVE, Browser, Android
+      </article>
     </div>
     <div>
       <section>
@@ -37,7 +39,7 @@ export const documentProps = {
           <a target='__blank' href='https://ioribranford.itch.io/honey-guardian'>
             <button>**<i class='fa-brands fa-itch-io'/> itch.io**</button>
           </a>
-          Windows, Linux, MacOS, Android, Browser
+          Windows, LÖVE, Browser, Android
         </section>
         <section>
           <a target='__blank' href='https://play.google.com/store/apps/details?id=com.ioribranford.honeysoldier'>
