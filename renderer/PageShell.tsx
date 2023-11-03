@@ -13,7 +13,7 @@ function PageShell({ pageContext, children }) {
 }
 
 function PageNav({url, href, children}) {
-	return <li><a href={href} class={url==href ? 'primary' : 'secondary'}>
+	return <li><a href={href} class={url==href ? 'primary' : 'contrast'}>
 		{url==href ? <b>{children}</b> : children}
 	</a></li>
 }
