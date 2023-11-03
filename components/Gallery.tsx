@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import "./Gallery.css";
+import { CSSProperties } from "preact/compat";
 
 export interface GalleryItemInfo {
   file: string;
@@ -19,6 +20,7 @@ export interface GalleryProps {
   items: GalleryItem[];
   columns?: number;
   showActive?: boolean;
+  aspectRatio?: string;
 }
 
 function csvToArr<T = Object>(csv: string, sep: string|RegExp = /,|[\n\r]+/) {
@@ -86,7 +88,7 @@ function extractIndexFromHash(hash:string, galleryId:string, numItems:number): n
   return itemi
 }
 
-function Thumbnail({ galleryId, item, itemi, onKeyUp, onMouseOver }) {
+function Thumbnail({ galleryId, item, itemi, onKeyUp, onMouseOver, imgStyle }) {
   return (
     <a tabIndex={0} role='button' class='secondary thumbnail' href={`#${galleryId}:${itemi}`}>
       <img
@@ -94,6 +96,7 @@ function Thumbnail({ galleryId, item, itemi, onKeyUp, onMouseOver }) {
         onKeyUp={onKeyUp}
         onMouseOver={onMouseOver}
         sizes="320px"
+        style={imgStyle}
         {...item}
       />
     </a>
@@ -101,13 +104,15 @@ function Thumbnail({ galleryId, item, itemi, onKeyUp, onMouseOver }) {
 }
 
 export default function Gallery(props: GalleryProps) {
-  const { id, items, columns = items.length, showActive = false } = props;
+  const { id, items, columns = items.length, showActive = false, aspectRatio = '1' } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
   const fullView = useRef<HTMLDivElement>();
   const activeView = useRef<HTMLImageElement>();
   const activeItem = items[activeIndex];
   const { fullElement, info } = activeItem;
+
+  const imgStyle: CSSProperties = {aspectRatio}
 
   const handleHash = (e?:HashChangeEvent) => {
     if (e) e.preventDefault()
@@ -154,6 +159,7 @@ export default function Gallery(props: GalleryProps) {
           ref={activeView}
           class="active"
           sizes="640px"
+          style={imgStyle}
           {...activeItem}
         />
       </a>
@@ -163,7 +169,7 @@ export default function Gallery(props: GalleryProps) {
             const itemi = rowi * columns + rowitemi
             return (
               <div>
-                <Thumbnail galleryId={id} item={item} itemi={itemi}
+                <Thumbnail galleryId={id} item={item} itemi={itemi} imgStyle={imgStyle}
                   onKeyUp={(e: KeyboardEvent) => {
                     if (e.key == "Tab") {
                       if (showActive)

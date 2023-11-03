@@ -23,7 +23,6 @@ img.active, iframe.active, img.thumbnail {
 	max-width: 100%;
 	max-height: 100%;
 	object-fit: contain;
-	aspect-ratio: 16/9;
 }
 
 img.fullview {
