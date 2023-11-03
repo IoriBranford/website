@@ -8,13 +8,14 @@ div.fullview {
 	flex-direction: row;
 	column-gap: 1rem;
 	background-color: #000000C0;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
 	cursor: zoom-out;
 }
 
 article.fullviewinfo {
-	margin: (var(--block-spacing-vertical) / 2) 0
+	margin: 1rem 0;
+	flex-shrink: 2;
 }
 
 img.active, iframe.active, img.thumbnail {
@@ -52,6 +53,10 @@ a.active:hover, a.thumbnail:hover {
 		flex-direction: column;
 	}
 	img.fullview {
-		max-height: 66vh;
+		max-height: 75vh;
+	}
+	article.fullviewinfo {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 }
