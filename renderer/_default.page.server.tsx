@@ -33,7 +33,9 @@ async function render(pageContext) {
 			<meta name="color-scheme" content="light dark" />
 			<meta name="description" content="${desc}" />
 			<title>${title}</title>
-			<script defer src="https://kit.fontawesome.com/a8b238c89b.js" crossorigin="anonymous"></script>
+			<link rel="stylesheet" href="/fontawesome/css/fontawesome.min.css">
+			<link rel="stylesheet" href="/fontawesome/css/solid.min.css">
+			<link rel="stylesheet" href="/fontawesome/css/brands.min.css">
 		</head>
 		<body id='app' class='container'>
 			${dangerouslySkipEscape(pageHtml)}
