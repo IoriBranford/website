@@ -6,7 +6,7 @@ div.fullview {
 	height: 100vh;
 	display: flex;
 	flex-direction: row;
-	column-gap: 1fr;
+	column-gap: 1rem;
 	background-color: #000000C0;
 	justify-content: space-around;
 	align-items: center;
