@@ -21,9 +21,9 @@ export function Page() {
 					))}
 				</div>
 				<div class='grid' style={{textAlign: 'center'}}>
-					<a href="/links"><b><i class='fa-solid fa-link'/> Links</b></a>
-					<a href="/contact"><b><i class='fa-solid fa-message'/> Contact</b></a>
-					<a href="/donate"><b><i class='fa-solid fa-circle-dollar-to-slot'/> Donate</b></a>
+					<a href="/links"><b>🔗 Links</b></a>
+					<a href="/contact"><b>💬 Contact</b></a>
+					<a href="/donate"><b>💸 Donate</b></a>
 				</div>
 			</section>
 		</div>
