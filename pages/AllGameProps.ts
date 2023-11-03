@@ -1,7 +1,7 @@
 import GameProps from "./GameProps"
 
 const GameImports: Record<string, GameProps> = import.meta.glob(
-  "./*/index.page.mdx",
+  ["./*/props.ts"],
   {
     eager: true,
     import: 'documentProps'
