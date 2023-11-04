@@ -1,5 +1,5 @@
 import { GalleryItem } from "#root/components/Gallery";
-import Shot1 from '../assets/shot1.jpg?galleryimg'
+import Shot1 from '../assets/Trailer.jpg?galleryimg'
 import './Trailer.css'
 
 const e : GalleryItem = {
