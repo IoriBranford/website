@@ -1,3 +1,4 @@
+import './PageShell.css'
 import { PageContextProvider } from './usePageContext';
 
 export { PageShell };
@@ -22,7 +23,7 @@ export function Header({ url }) {
 	return (
 			<nav>
 				<ul>
-					<li><a href='/'><img width={32} height={32} src='/avatar.png' alt='Iori Branford avatar'/> <b>Iori Branford</b></a></li>
+					<li><a href='/'><img width={32} height={32} src='/avatar.png' alt='Iori Branford avatar'/> <b class='headername'>Iori Branford</b></a></li>
 				</ul>
 				<ul>
 					<li><details role='list'>
