@@ -32,11 +32,11 @@ function Resource(props) {
 	const {href, title, description, cardImg} = props
 	return (<section>
 		<a href={href}>
-			<button style={{position: 'relative', padding: 0}}>
-				<img src={cardImg} style={{borderRadius: 'var(--border-radius)'}}/>
+			<button style={{position: 'relative', padding: 0}} title={title}>
+				<img src={cardImg} alt={title} style={{borderRadius: 'var(--border-radius)'}}/>
 			</button>
+			<b>{title}</b>
 		</a>
-		<b>{title}</b>
 		<p>{description}</p>
 	</section>);
 }
