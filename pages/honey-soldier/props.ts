@@ -1,5 +1,5 @@
 import GameProps from "../GameProps";
-import cardImg from './card.png'
+import cardImg from './card.png?url'
 
 export const documentProps: GameProps = {
     "id": "honey-soldier",
