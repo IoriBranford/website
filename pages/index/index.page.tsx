@@ -22,7 +22,7 @@ export function Page() {
 				</div>
 				<div class='grid' style={{textAlign: 'center'}}>
 					<a href="/links"><b>🔗 Links</b></a>
-					<a href="/contact"><b>💬 Contact</b></a>
+					<a href="/connect"><b>💬 Connect</b></a>
 					<a href="/donate"><b>💸 Donate</b></a>
 				</div>
 			</section>

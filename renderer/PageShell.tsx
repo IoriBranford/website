@@ -33,7 +33,7 @@ export function Header({ url }) {
 						</ul>
 					</details></li>
 					<PageNav href='/links' url={url}>Links</PageNav>
-					<PageNav href='/contact' url={url}>Contact</PageNav>
+					<PageNav href='/connect' url={url}>Connect</PageNav>
 					<PageNav href='/donate' url={url}>Donate</PageNav>
 				</ul>
 			</nav>
