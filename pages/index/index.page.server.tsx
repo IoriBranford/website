@@ -14,18 +14,22 @@ export function Page() {
 				<img class='avatar' src='/avatar.png' alt="Iori Branford's avatar" height="256" width="256" />
 				<h1 style={{textAlign: 'center'}}>Iori Branford</h1>
 			</div>
-			<section>
-				<div class='grid'>
-					{Object.entries(AllGameProps).map(([id, game]) => (
-						<Resource href={`/${id}`} {...game}/>
-					))}
-				</div>
-				<div class='grid' style={{textAlign: 'center'}}>
-					<a href="/links"><b>🔗 Links</b></a>
-					<a href="/connect"><b>💬 Connect</b></a>
-					<a href="/donate"><b>💸 Donate</b></a>
-				</div>
-			</section>
+			<div>
+				<section>
+					<div class='grid'>
+						{Object.entries(AllGameProps).map(([id, game]) => (
+							<Resource href={`/${id}`} {...game}/>
+						))}
+					</div>
+				</section>
+				<section>
+					<div class='grid' style={{textAlign: 'center'}}>
+						<section><a href="/links"><b>🔗 Links</b></a></section>
+						<section><a href="/connect"><b>💬 Connect</b></a></section>
+						<section><a href="/donate"><b>💸 Donate</b></a></section>
+					</div>
+				</section>
+			</div>
 		</div>
 	</>);
 }
