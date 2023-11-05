@@ -55,7 +55,7 @@ export const GalleryItems = (
       const info = ItemsInfo[item[0]];
       return {
         src: OriginalImages[item[0]],
-        srcset: item[1],
+        srcset: `${item[1]}, ${OriginalImages[item[0]]}`,
         alt: info ? info.description : item[0],
         info,
       };
