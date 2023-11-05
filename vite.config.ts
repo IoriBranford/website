@@ -25,11 +25,11 @@ export default defineConfig({
 		imagetools({
 			defaultDirectives: (url) => {
 				const params0 = url.searchParams
-				let params = "?format=webp&lossless"
+				let params = "?format=webp"
 				if (params0.has("galleryimg")) {
-					params = "?as=srcset&format=webp&lossless&w=1280;640;320"
+					params = "?as=srcset&format=webp&w=320;640;1280"
 				} else if (params0.has("logo")) {
-					params = "?as=srcset&format=webp&lossless&w=640;320"
+					params = "?as=srcset&format=webp&w=320;640"
 				}
 				return new URLSearchParams(params)
 			}
