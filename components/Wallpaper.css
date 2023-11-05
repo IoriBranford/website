@@ -1,5 +1,5 @@
 html {
-    background-image: $wall-left, $wall-right;
+    background-image: var(--wall-left), var(--wall-right);
     background-position-x: left, right;
     background-position-y: center, center;
     background-attachment: fixed, fixed;
@@ -10,7 +10,7 @@ html {
 
 @media (max-width: 991px) {
     html {
-        background-image: $wall-top, $wall-bottom;
+        background-image: var(--wall-top), var(--wall-bottom);
         background-position-y: top, bottom;
         background-position-x: center, center;
     }
