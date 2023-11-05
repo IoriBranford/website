@@ -7,10 +7,10 @@ html {
 
 @media (prefers-color-scheme: light) {
     html {
-        --wall-left:    none; //url(assets/wall-left-light.png);
-        --wall-right:   none; //url(assets/wall-right-light.png);
-        --wall-top:     none; //url(assets/wall-top-light.png);
-        --wall-bottom:  none; //url(assets/wall-bottom-light.png);
+        --wall-left: url(assets/wall-left-light.png);
+        --wall-right: url(assets/wall-right-light.png);
+        --wall-top: url(assets/wall-top-light.png);
+        --wall-bottom: url(assets/wall-bottom-light.png);
     }
 }
 
