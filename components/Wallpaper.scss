@@ -1,0 +1,17 @@
+html {
+    background-image: $wall-left, $wall-right;
+    background-position-x: left, right;
+    background-position-y: center, center;
+    background-attachment: fixed, fixed;
+    background-size: contain, contain;
+    background-blend-mode: luminosity, luminosity;
+    background-repeat: no-repeat, no-repeat;
+}
+
+@media (max-width: 991px) {
+    html {
+        background-image: $wall-top, $wall-bottom;
+        background-position-y: top, bottom;
+        background-position-x: center, center;
+    }
+}
