@@ -1,5 +1,5 @@
-// import './style.css';
-// import '#root/components/Resource.css'
+import '@picocss/pico/css/pico.min.css'
+
 import AllGameProps from '../AllGameProps';
 
 export const documentProps = {

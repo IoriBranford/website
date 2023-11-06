@@ -5,7 +5,6 @@ export const passToClient = ['pageProps', 'urlPathname'];
 import { renderToString } from 'preact-render-to-string';
 import { PageShell } from './PageShell';
 import { escapeInject, dangerouslySkipEscape } from 'vike/server';
-import './style.scss'
 
 async function render(pageContext) {
 	const { Page, pageProps } = pageContext;
