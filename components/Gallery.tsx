@@ -107,7 +107,9 @@ export default function Gallery(props: GalleryProps) {
   const { id, items, columns = items.length, showActive = false, aspectRatio = '1' } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
+  const [isFullViewLoading, setFullViewLoading] = useState<boolean>(false)
   const fullView = useRef<HTMLDialogElement>();
+  const fullViewImg = useRef<HTMLImageElement>();
   const activeView = useRef<HTMLAnchorElement>();
   const activeItem = items[activeIndex];
   const { fullElement, info } = activeItem;
@@ -139,8 +141,10 @@ export default function Gallery(props: GalleryProps) {
     if (isFullView) {
       fullView.current.focus();
       document.documentElement.classList.add("modal-is-open")
+      setFullViewLoading(!fullElement && fullViewImg.current && !fullViewImg.current.complete)
     } else {
       document.documentElement.classList.remove("modal-is-open")
+      setFullViewLoading(true)
     }
   }, [isFullView]);
 
@@ -193,13 +197,14 @@ export default function Gallery(props: GalleryProps) {
         class="fullview"
         onClick={() => history.back()}
         onKeyPress={() => history.back()}
+        aria-busy={isFullViewLoading}
       >
-        {fullElement ? (
-          fullElement
-        ) : (
-          <img class="fullview" sizes="1280px" {...activeItem} />
-        )}
-        {info ? <FullViewInfo {...info}/> : <></>}
+        {fullElement}
+        <img class="fullview" sizes="1280px" ref={fullViewImg}
+          style={{display: (fullElement || isFullViewLoading) ? 'none' : null}}
+          onLoad={() => setFullViewLoading(false)}
+          {...(isFullView ? activeItem : {})} />
+        {(info && isFullView && !isFullViewLoading) ? <FullViewInfo {...info}/> : <></>}
       </dialog>
     </>
   )
