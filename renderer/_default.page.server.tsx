@@ -23,7 +23,7 @@ async function render(pageContext) {
 		(documentProps && documentProps.description) || 'Monstergirl fantasy action games';
 
 	const documentHtml = escapeInject`<!DOCTYPE html>
-		<html lang="en">
+		<html lang="en" data-theme="dark">
 		<head>
 			<meta charset="UTF-8" />
 			<link rel="icon" type="image/png" href="/avatar.png" />
