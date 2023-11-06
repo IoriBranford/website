@@ -107,7 +107,7 @@ export default function Gallery(props: GalleryProps) {
   const { id, items, columns = items.length, showActive = false, aspectRatio = '1' } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
-  const fullView = useRef<HTMLDivElement>();
+  const fullView = useRef<HTMLDialogElement>();
   const activeView = useRef<HTMLImageElement>();
   const activeItem = items[activeIndex];
   const { fullElement, info } = activeItem;
@@ -138,6 +138,9 @@ export default function Gallery(props: GalleryProps) {
   useEffect(() => {
     if (isFullView) {
       fullView.current.focus();
+      document.documentElement.classList.add("modal-is-open")
+    } else {
+      document.documentElement.classList.remove("modal-is-open")
     }
   }, [isFullView]);
 
@@ -184,10 +187,9 @@ export default function Gallery(props: GalleryProps) {
           })}
         </div>
       ))}
-      <div
+      <dialog open={isFullView}
         tabindex={-1}
         ref={fullView}
-        style={isFullView ? undefined : { display: "none" }}
         class="fullview"
         onClick={() => history.back()}
         onKeyPress={() => history.back()}
@@ -198,7 +200,7 @@ export default function Gallery(props: GalleryProps) {
           <img class="fullview" sizes="1280px" {...activeItem} />
         )}
         {info ? <FullViewInfo {...info}/> : <></>}
-      </div>
+      </dialog>
     </>
   )
 }
