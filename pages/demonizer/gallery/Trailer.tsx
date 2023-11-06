@@ -11,8 +11,10 @@ const e : GalleryItem = {
       allowFullScreen
     />
   ),
-  srcset: Thumbnail,
-  alt: "Demonizer trailer",
+  img: {
+    srcset: Thumbnail,
+    alt: "Demonizer trailer",
+  },
 };
 
 export default e

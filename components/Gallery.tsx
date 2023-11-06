@@ -10,7 +10,8 @@ export interface GalleryItemInfo {
   description: string;
 }
 
-export type GalleryItem = JSX.HTMLAttributes<HTMLImageElement> & {
+export interface GalleryItem {
+  img: JSX.HTMLAttributes<HTMLImageElement>
   fullElement?: JSX.Element;
   info?: GalleryItemInfo;
 };
@@ -54,9 +55,11 @@ export const GalleryItems = (
     ...Object.entries(ImageItems).map<GalleryItem>((item) => {
       const info = ItemsInfo[item[0]];
       return {
-        src: OriginalImages[item[0]],
-        srcset: `${item[1]}, ${OriginalImages[item[0]]}`,
-        alt: info ? info.description : item[0],
+        img: {
+          src: OriginalImages[item[0]],
+          srcset: `${item[1]}, ${OriginalImages[item[0]]}`,
+          alt: info ? info.description : item[0],
+        },
         info,
       };
     }),
@@ -88,7 +91,7 @@ function extractIndexFromHash(hash:string, galleryId:string, numItems:number): n
   return itemi
 }
 
-function Thumbnail({ galleryId, item, itemi, onKeyUp, onMouseOver, imgStyle }) {
+function Thumbnail({ galleryId, img, itemi, onKeyUp, onMouseOver, imgStyle }) {
   return (
     <a tabIndex={0} role='button' class='secondary thumbnail' href={`#${galleryId}:${itemi}`}>
       <img
@@ -97,7 +100,7 @@ function Thumbnail({ galleryId, item, itemi, onKeyUp, onMouseOver, imgStyle }) {
         onMouseOver={onMouseOver}
         sizes="320px"
         style={imgStyle}
-        {...item}
+        {...img}
       />
     </a>
   );
@@ -112,7 +115,7 @@ export default function Gallery(props: GalleryProps) {
   const fullViewImg = useRef<HTMLImageElement>();
   const activeView = useRef<HTMLAnchorElement>();
   const activeItem = items[activeIndex];
-  const { fullElement, info } = activeItem;
+  const { fullElement, info, img } = activeItem;
 
   const imgStyle: CSSProperties = {aspectRatio}
 
@@ -167,7 +170,7 @@ export default function Gallery(props: GalleryProps) {
           class="active"
           sizes="640px"
           style={imgStyle}
-          {...activeItem}
+          {...img}
         />
       </a>
       {rows.map((row, rowi) => (
@@ -176,7 +179,7 @@ export default function Gallery(props: GalleryProps) {
             const itemi = rowi * columns + rowitemi
             return (
               <div>
-                <Thumbnail galleryId={id} item={item} itemi={itemi} imgStyle={imgStyle}
+                <Thumbnail galleryId={id} img={item.img} itemi={itemi} imgStyle={imgStyle}
                   onKeyUp={(e: KeyboardEvent) => {
                     if (e.key == "Tab") {
                       if (showActive)
@@ -203,7 +206,7 @@ export default function Gallery(props: GalleryProps) {
         <img class="fullview" sizes="1280px" ref={fullViewImg}
           style={{display: (fullElement || isFullViewLoading) ? 'none' : null}}
           onLoad={() => setFullViewLoading(false)}
-          {...(isFullView ? activeItem : {})} />
+          {...(isFullView ? img : {})} />
         {(info && isFullView && !isFullViewLoading) ? <FullViewInfo {...info}/> : <></>}
       </dialog>
     </>
