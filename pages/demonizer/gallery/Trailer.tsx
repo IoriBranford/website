@@ -1,5 +1,5 @@
 import { GalleryItem } from "#root/components/Gallery";
-import Shot1 from '../assets/Trailer.jpg?galleryimg'
+import Thumbnail from '../assets/Trailer.jpg?responsive'
 import './Trailer.css'
 
 const e : GalleryItem = {
@@ -11,7 +11,7 @@ const e : GalleryItem = {
       allowFullScreen
     />
   ),
-  srcset: Shot1,
+  srcset: Thumbnail,
   alt: "Demonizer trailer",
 };
 

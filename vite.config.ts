@@ -26,10 +26,8 @@ export default defineConfig({
 			defaultDirectives: (url) => {
 				const params0 = url.searchParams
 				let params = "?format=webp"
-				if (params0.has("galleryimg")) {
+				if (params0.has("responsive")) {
 					params = "?as=srcset&format=webp&w=320;640;1280"
-				} else if (params0.has("logo")) {
-					params = "?as=srcset&format=webp&w=320;640"
 				}
 				return new URLSearchParams(params)
 			}

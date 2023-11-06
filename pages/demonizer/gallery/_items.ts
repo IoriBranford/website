@@ -6,7 +6,7 @@ const ImageItems: Record<string, string> = import.meta.glob(
     eager: true,
     import: "default",
     query: {
-      galleryimg: true,
+      responsive: true,
     },
   }
 );
