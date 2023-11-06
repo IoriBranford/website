@@ -177,9 +177,10 @@ export default function Gallery(props: GalleryProps) {
         <div class='grid' style={{justifyItems: 'center'}}>
           {row.map((item, rowitemi) => {
             const itemi = rowi * columns + rowitemi
+            const {img, info} = item
             return (
               <div>
-                <Thumbnail galleryId={id} img={item.img} itemi={itemi} imgStyle={imgStyle}
+                <Thumbnail galleryId={id} img={img} itemi={itemi} imgStyle={imgStyle}
                   onKeyUp={(e: KeyboardEvent) => {
                     if (e.key == "Tab") {
                       if (showActive)
@@ -188,7 +189,7 @@ export default function Gallery(props: GalleryProps) {
                     }
                   }}
                   onMouseOver={() => setActiveIndex(itemi)}/>
-                {info && <section><ItemInfo {...item.info}/></section>}
+                {info && <section><ItemInfo {...info}/></section>}
               </div>
             )
           })}
