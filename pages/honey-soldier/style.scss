@@ -15,4 +15,7 @@ html {
 }
 
 @import '/components/Wallpaper';
+
+$grey-hue: 15;
+$primary-hue: 45;
 @import '@picocss/pico/scss/pico';
