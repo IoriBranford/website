@@ -108,7 +108,7 @@ export default function Gallery(props: GalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
   const fullView = useRef<HTMLDialogElement>();
-  const activeView = useRef<HTMLImageElement>();
+  const activeView = useRef<HTMLAnchorElement>();
   const activeItem = items[activeIndex];
   const { fullElement, info } = activeItem;
 
@@ -157,9 +157,9 @@ export default function Gallery(props: GalleryProps) {
     <>
       <a tabIndex={0} role='button' class='secondary active'
           style={!showActive && { display: 'none' }}
-          href={`#${id}:${activeIndex}`}>
+          href={`#${id}:${activeIndex}`}
+          ref={activeView}>
         <img
-          ref={activeView}
           class="active"
           sizes="640px"
           style={imgStyle}
