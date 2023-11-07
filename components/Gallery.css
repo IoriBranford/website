@@ -25,6 +25,8 @@ img.fullview {
 }
 
 a.active, a.thumbnail {
+	min-width: 100%;
+	height: auto;
 	cursor: zoom-in;
 	padding: 0.25rem;
 	margin: 0.25rem;
