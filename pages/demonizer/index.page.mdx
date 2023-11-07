@@ -3,6 +3,7 @@ import GalleryItems from './gallery/_items'
 import ReviewQuote from "#root/components/ReviewQuote.tsx";
 
 import Logo from "./assets/logo.png?responsive";
+import Top10_2020 from "./assets/top10-2020.png?responsive"
 
 import './style.scss'
 
@@ -72,14 +73,17 @@ export {documentProps}
 <section>
   # Reviews
   <div class='grid'>
+    <ReviewQuote source='The Electric Underground Top 10 Shmups of 2020' href='https://youtu.be/ARlyXXCQER0&t=891'>
+      <img sizes='(max-width: 575px) 360px, 640px' srcset={Top10_2020}/>
+    </ReviewQuote>
     <ReviewQuote source='The Electric Underground' href="https://www.youtube.com/watch?v=F_kMbAAn8X8">
       “absolutely fantastic. It is unique and worth your time...I love this visual style...it hit me with nostalgia in a way that a lot of these...'nostalgic' games just don't do for me”
     </ReviewQuote>
+  </div>
+  <div class='grid'>
     <ReviewQuote source='Rice Digital' href='https://ricedigital.co.uk/blissful-death-demonizer/'>
       “Its emphasis on conflict between humanoid-sized opponents makes for a pleasingly different feel to many other shoot ’em ups out there, and the feeling of gathering allies to fight alongside you as you progress is consistently enjoyable and satisfying.”
     </ReviewQuote>
-  </div>
-  <div class='grid'>
     <ReviewQuote source='Isla de Monos' href='https://islademonos.com/analisis/demonizer-el-odio-al-diferente/'>
       “everything is measured to the millimeter so that the experience is as satisfactory as possible....Iori Branford has graduated with a superb degree, unashamed, profound, intelligent, full of justice and feeling.”
     </ReviewQuote>
