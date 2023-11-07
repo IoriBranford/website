@@ -1,0 +1,9 @@
+iframe.video {
+    aspect-ratio: 9/16;
+    width: auto;
+    height: 90%;
+    @media (max-aspect-ratio: 9/16) {
+        width: 90%;
+        height: auto;
+    }
+}
