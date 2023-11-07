@@ -36,6 +36,10 @@ a.active:hover, a.thumbnail:hover {
 	background-color: var(--secondary);
 }
 
+.modal-is-open {
+	touch-action: manipulation;
+}
+
 @media (max-width: 991px) {
 	a.active {
 		display: none;
