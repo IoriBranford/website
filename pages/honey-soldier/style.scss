@@ -1,3 +1,7 @@
+$grey-hue: 15;
+$primary-hue: 45;
+@import '@picocss/pico/scss/pico';
+
 html {
     --wall-left: url(assets/wall-left.png);
     --wall-right: url(assets/wall-right.png);
@@ -17,6 +21,7 @@ html {
 
 @import '/components/Wallpaper';
 
-$grey-hue: 15;
-$primary-hue: 45;
-@import '@picocss/pico/scss/pico';
+@import '/components/Gallery';
+
+@import '@fortawesome/fontawesome-free/css/fontawesome';
+@import '@fortawesome/fontawesome-free/css/brands';

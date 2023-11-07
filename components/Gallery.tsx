@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
-import "./Gallery.css";
+
+// DON'T import "./Gallery.css"; here
+// Let each page's stylesheet import it to ensure correct ordering
+
 import { CSSProperties } from "preact/compat";
 
 export interface GalleryItemInfo {
