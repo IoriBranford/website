@@ -4,7 +4,7 @@ import { JSX } from "preact/jsx-runtime";
 // DON'T import "./Gallery.css"; here
 // Let each page's stylesheet import it to ensure correct ordering
 
-import { CSSProperties } from "preact/compat";
+import { CSSProperties, HTMLAttributes } from "preact/compat";
 
 export interface GalleryItemInfo {
   file: string;
@@ -13,9 +13,11 @@ export interface GalleryItemInfo {
   description: string;
 }
 
+export type FullElementProps = HTMLAttributes<HTMLIFrameElement>;
+
 export interface GalleryItem {
   img: JSX.HTMLAttributes<HTMLImageElement>
-  fullElement?: JSX.Element;
+  fullElement?: (props:FullElementProps) => JSX.Element;
   info?: GalleryItemInfo;
 };
 
@@ -113,7 +115,7 @@ export default function Gallery(props: GalleryProps) {
   const { id, items, columns = items.length, showActive = false, aspectRatio = '1' } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
-  const [isFullViewLoading, setFullViewLoading] = useState<boolean>(false)
+  const [isFullViewLoading, setFullViewLoading] = useState<boolean>(true)
   const fullView = useRef<HTMLDialogElement>();
   const fullViewImg = useRef<HTMLImageElement>();
   const activeView = useRef<HTMLAnchorElement>();
@@ -147,7 +149,6 @@ export default function Gallery(props: GalleryProps) {
     if (isFullView) {
       fullView.current.focus();
       document.documentElement.classList.add("modal-is-open")
-      setFullViewLoading(!fullElement && fullViewImg.current && !fullViewImg.current.complete)
     } else {
       document.documentElement.classList.remove("modal-is-open")
       setFullViewLoading(true)
@@ -206,7 +207,10 @@ export default function Gallery(props: GalleryProps) {
         onKeyPress={() => history.back()}
         aria-busy={isFullViewLoading}
       >
-        {fullElement}
+        {isFullView && fullElement ? fullElement({
+          style: {display: isFullViewLoading ? 'none' : null},
+          onLoad: () => setFullViewLoading(false)
+        }) : <></>}
         <img class="fullview" sizes="1280px" ref={fullViewImg}
           style={{display: (fullElement || isFullViewLoading) ? 'none' : null}}
           onLoad={() => setFullViewLoading(false)}
