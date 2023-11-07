@@ -29,11 +29,11 @@ export function Page() {
 }
 
 function Resource(props) {
-	const {href, title, description, cardImg} = props
+	const {href, title, description, image} = props
 	return (<section>
 		<a href={href}>
 			<button style={{position: 'relative', padding: 0}} title={title}>
-				<img src={cardImg} alt={title} style={{borderRadius: 'var(--border-radius)'}}/>
+				<img src={image} alt={title} style={{borderRadius: 'var(--border-radius)'}}/>
 			</button>
 			<b>{title}</b>
 		</a>

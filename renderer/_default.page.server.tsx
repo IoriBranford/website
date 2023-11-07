@@ -21,6 +21,13 @@ async function render(pageContext) {
 	const title = (documentProps && documentProps.title) || 'Iori Branford';
 	const desc =
 		(documentProps && documentProps.description) || 'Monstergirl fantasy action games';
+	const image = (documentProps && documentProps.image &&
+		escapeInject`
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:image" content="${documentProps.image}" />
+			<meta name="twitter:image:alt" content="${title} card" />
+			<meta name="og:image" content="${documentProps.image}" />
+		`) || ''
 
 	const documentHtml = escapeInject`<!DOCTYPE html>
 		<html lang="en" data-theme="dark">
@@ -30,6 +37,13 @@ async function render(pageContext) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<meta name="color-scheme" content="light dark" />
 			<meta name="description" content="${desc}" />
+			<meta name="og:description" content="${desc}" />
+			<meta name="twitter:description" content="${desc}" />
+			<meta name="og:title" content="${title}" />
+			<meta name="twitter:title" content="${title}" />
+			<meta name="og:site_name" content="Iori Branford" />
+			<meta name="twitter:site" content="@ioribranford" />
+			${image}
 			<title>${title}</title>
 		</head>
 		<body id='app' class='container'>
