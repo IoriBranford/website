@@ -26,6 +26,7 @@ export interface GalleryProps {
   items: GalleryItem[];
   columns?: number;
   showActive?: boolean;
+  showThumbInfo?: boolean;
   aspectRatio?: string;
 }
 
@@ -112,7 +113,7 @@ function Thumbnail({ galleryId, img, itemi, onKeyUp, onMouseOver, imgStyle }) {
 }
 
 export default function Gallery(props: GalleryProps) {
-  const { id, items, columns = items.length, showActive = false, aspectRatio = '1' } = props;
+  const { id, items, columns = items.length, showActive = false, showThumbInfo = false, aspectRatio = '1' } = props;
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isFullView, setFullView] = useState<boolean>(false);
   const [isFullViewLoading, setFullViewLoading] = useState<boolean>(true)
@@ -193,7 +194,7 @@ export default function Gallery(props: GalleryProps) {
                     }
                   }}
                   onMouseOver={() => setActiveIndex(itemi)}/>
-                {info && <section><ItemInfo {...info}/></section>}
+                {showThumbInfo && info && <section><ItemInfo {...info}/></section>}
               </div>
             )
           })}
