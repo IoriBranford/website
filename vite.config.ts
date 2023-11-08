@@ -4,6 +4,7 @@ import ssr from 'vike/plugin';
 import mdx from '@mdx-js/rollup';
 import mkcert from 'vite-plugin-mkcert'
 import {imagetools} from 'vite-imagetools'
+import vercelConfig from './vercel.json'
 
 const __dirname = "" // to be replaced by vite
 
@@ -21,9 +22,12 @@ export default defineConfig({
 		preact(),
 		ssr({
 			prerender: true,
-			redirects: {
-				'/honey-soldier': '/honeysoldier'
-			}
+			redirects: vercelConfig.redirects && vercelConfig.redirects.reduce(
+				(redirects, {source, destination}) => {
+					redirects[source] = destination;
+					return redirects
+				}
+			, {})
 		}),
 		mdx({ jsxImportSource: 'preact' }),
 		mkcert(),
