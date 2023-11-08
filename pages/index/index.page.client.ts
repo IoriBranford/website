@@ -2,7 +2,7 @@ const hashRedirects: Record<string, string> = {
     '#demonizer': '/demonizer',
     '#demonizer-bonus': '/demonizer/bonus',
     '#demonizer-bonus-art': '/demonizer/bonus',
-    '#honey-soldier': '/honey-soldier',
+    '#honey-soldier': '/honeysoldier',
     '#links': '/links',
     '#contact': '/connect',
     '#donate': '/donate',

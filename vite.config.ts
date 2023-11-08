@@ -19,7 +19,12 @@ export default defineConfig({
 	},
 	plugins: [
 		preact(),
-		ssr({ prerender: true }),
+		ssr({
+			prerender: true,
+			redirects: {
+				'/honey-soldier': '/honeysoldier'
+			}
+		}),
 		mdx({ jsxImportSource: 'preact' }),
 		mkcert(),
 		imagetools({
