@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "verceldev": "vercel dev",
     "build": "vite build",
     "preview": "vite preview",
     "buildpreview": "vite build && vite preview"
