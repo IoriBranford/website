@@ -1,13 +1,11 @@
 export default async function handler(request, response) {
-    const appIds = request.query.appIds || "1091390"
+    const appids = request.query.appids
+    if (!appids)
+        return response.status(400)
 
-    const appDetailsUrl=`https://store.steampowered.com/api/appdetails/?appids=${appIds}&filters=price_overview`
-    const appDetailsResp = await fetch(appDetailsUrl, {method: 'GET',})
-    response.status(appDetailsResp.status)
-    if (!appDetailsResp.ok) {
-        response.send(await appDetailsResp.text())
-        return
-    }
-
-    response.json(await appDetailsResp.json())
+    await fetch(`https://store.steampowered.com/api/appdetails/?appids=${appids}&filters=price_overview`)
+        .then(resp => resp.json()
+            .then(json => response.status(200).json(json)
+            , reason => response.status(500).send(reason))
+        , reason => response.status(500).send(reason))
 }
