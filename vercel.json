@@ -1,5 +1,13 @@
 {
   "redirects": [
     { "source": "/honey-soldier", "destination": "/honeysoldier", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
   ]
 }
