@@ -8,6 +8,7 @@ import Top10_2020 from "./assets/top10-2020.png?responsive"
 import './style.scss'
 
 import {documentProps} from './props'
+import { ItchGamePrice, SteamGamePrice } from "#root/components/GamePrices";
 export {documentProps}
 
 <section>
@@ -54,12 +55,14 @@ export {documentProps}
       <a target='__blank' href='https://ioribranford.itch.io/demonizer'>
         <button>**<i class='fa-brands fa-itch-io'/> itch.io**</button>
       </a>
+      <ItchGamePrice author='ioribranford' game='demonizer' defaultPrice='$12.00'/>
       Windows, Linux, MacOS, Android, Raspberry Pi, LÖVE
     </div>
     <div>
       <a target='__blank' href='https://store.steampowered.com/app/1091390/Demonizer'>
         <button>**<i class='fa-brands fa-steam'/> Steam**</button>
       </a>
+      <SteamGamePrice appId='1091390' defaultPrice='$11.99'/>
       Windows, Linux
     </div>
     <div>
