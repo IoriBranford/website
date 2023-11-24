@@ -85,7 +85,7 @@ export function SteamGamePrice({appId, defaultPrice}) {
       }
     }
   }
-  const apiOrigin = import.meta.env.VITE_API_ORIGIN || window.location.origin
+  const apiOrigin = import.meta.env.VITE_API_ORIGIN || ''
   return <GamePrice defaultPrice={defaultPrice}
     url={`${apiOrigin}/api/getSteamPrices?appids=${appId}`}
     readResponse={readResponse}/>
