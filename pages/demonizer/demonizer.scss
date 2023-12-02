@@ -1,0 +1,22 @@
+$grey-hue: 270;
+$primary-hue: 300;
+@import '@picocss/pico/scss/pico';
+
+html {
+    --wall-left: url(/pages/demonizer/assets/wall-left.png);
+    --wall-right: url(/pages/demonizer/assets/wall-right.png);
+    --wall-top: url(/pages/demonizer/assets/wall-top.png);
+    --wall-bottom: url(/pages/demonizer/assets/wall-bottom.png);
+}
+
+// TODO
+// @media (prefers-color-scheme: light) {
+//     html {
+//         --wall-left: url(assets/wall-left-light.png);
+//         --wall-right: url(assets/wall-right-light.png);
+//         --wall-top: url(assets/wall-top-light.png);
+//         --wall-bottom: url(assets/wall-bottom-light.png);
+//     }
+// }
+
+@import '/components/Wallpaper';
