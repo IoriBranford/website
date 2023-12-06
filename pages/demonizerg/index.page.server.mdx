@@ -1,5 +1,7 @@
-import '../demonizer/demonizer.scss'
+import './style.scss'
 import Logo from "./assets/logo.png";
+import ItchBetaImage from "./assets/itch-beta.png?responsive"
+import SteamBetaImage from "./assets/steam-beta.png?responsive"
 
 export const documentProps = {
     "id": "demonizerg",
@@ -26,7 +28,7 @@ export const documentProps = {
       marginLeft: 'auto',
       marginRight: 'auto',
       marginBottom: '1rem',
-    }} width="1200" height="1600" src="https://www.youtube-nocookie.com/embed/tXqZ7H5s4EI?rel=0&si=eQmKkZr0ZrTFweKh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen>
+    }} width="360" height="480" src="https://www.youtube-nocookie.com/embed/tXqZ7H5s4EI?rel=0&si=eQmKkZr0ZrTFweKh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen>
     </iframe>
     <div>
       The fantasy bullet battle to end monstergirl genocide, REBORN!
@@ -36,11 +38,25 @@ export const documentProps = {
       - New enemy actions and tactics adding challenge and excitement
       - Enhanced art and graphic effects for a more beautiful and vibrant fantasy world
       - And more to come...
-
-      Buy the original Demonizer and get access to the Demonizer G development beta!
-      <a href='/demonizer'>
-        <button>**😈 View original game**</button>
-      </a>
     </div>
   </div>
+</section>
+<section style={{textAlign: 'center'}}>
+  Buy the original Demonizer and get access to the Demonizer G development beta!
+  <div class='grid'>
+    <figure>
+      <img srcset={ItchBetaImage} style={{maxWidth: '100%', height: 'auto'}}
+        alt="itch.io beta downloads are on your downloads page"/>
+      <figcaption><i class='fa-brands fa-itch-io'/> itch.io</figcaption>
+    </figure>
+    <figure>
+      <img srcset={SteamBetaImage} style={{maxWidth: '100%', height: 'auto'}}
+        alt="Steam beta downloads are in the development beta"/>
+      <figcaption><i class='fa-brands fa-steam'/> Steam</figcaption>
+    </figure>
+  </div>
+
+  <a href='/demonizer'>
+    <button>**😈 View original game**</button>
+  </a>
 </section>
