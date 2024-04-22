@@ -23,7 +23,7 @@
     "sass": "^1.69.5",
     "typescript": "^5.2.2",
     "vike": "^0.4.144",
-    "vite": "^4.5.0",
+    "vite": "^4.5.3",
     "vite-imagetools": "^5.1.2",
     "vite-plugin-mkcert": "^1.16.0"
   },
