@@ -8,6 +8,11 @@ export default {
     // !! WARNING !! Before doing so, read https://vike.dev/clientRouting
     
     meta: {
+        documentProps: {
+            env: {
+                server: true
+            }
+        },
         renderMode: {
             env: { config: true },
             effect({ configDefinedAt, configValue }) {

@@ -2,11 +2,6 @@ import '@picocss/pico/css/pico.min.css'
 
 import AllGameProps from '../AllGameProps';
 
-export const documentProps = {
-	title: 'Iori Branford',
-	description: 'Monstergirl fantasy action games'
-}
-
 export function Page() {
 	return (
 		<div style={{justifyItems: 'center'}}>
