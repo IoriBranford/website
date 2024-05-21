@@ -1,4 +1,4 @@
-export { render };
+export { render as onRenderClient };
 
 import { hydrate } from 'preact';
 import { PageShell } from './PageShell';
@@ -17,7 +17,3 @@ async function render(pageContext) {
 		root,
 	);
 }
-
-/* To enable Client-side Routing:
-export const clientRouting = true
-// !! WARNING !! Before doing so, read https://vike.dev/clientRouting */
