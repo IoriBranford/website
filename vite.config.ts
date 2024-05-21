@@ -10,9 +10,6 @@ const __dirname = "" // to be replaced by vite
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	server: {
-		https: true
-	},
 	resolve: {
 		alias: [
 			{ find: '#root', replacement: __dirname }
