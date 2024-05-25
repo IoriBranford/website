@@ -19,6 +19,9 @@ export function Page() {
 				<section><a href="/connect"><b>💬 Connect</b></a></section>
 				<section><a href="/donate"><b>💸 Donate</b></a></section>
 			</div>
+			<div style={{textAlign: 'center'}}>
+				<a href="/privacy"><small>Privacy policy</small></a>
+			</div>
 		</div>
 	);
 }
