@@ -25,9 +25,10 @@ async function render(pageContext) {
 			<meta property="og:image" content="${documentProps.image}" />
 			<meta property="og:image:alt" content="${title} card" />
 		`) || ''
+	const theme = (documentProps && documentProps.theme) || 'dark';
 
 	const documentHtml = escapeInject`<!DOCTYPE html>
-		<html lang="en" data-theme="dark">
+		<html lang="en" data-theme="${theme}">
 		<head>
 			<meta charset="UTF-8" />
 			<link rel="icon" type="image/png" href="/avatar.png" />
