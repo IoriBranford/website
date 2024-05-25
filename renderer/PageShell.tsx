@@ -8,7 +8,7 @@ function PageShell({ pageContext, children }) {
 		<PageContextProvider pageContext={pageContext}>
 			<Header url={pageContext.urlPathname} />
 			<main>{children}</main>
-			<section>© 2023 Iori Branford</section>
+			<section>© 2024 Iori Branford</section>
 		</PageContextProvider>
 	);
 }
