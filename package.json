@@ -14,7 +14,8 @@
     "@mdx-js/rollup": "^2.3.0",
     "@picocss/pico": "^1.5.13",
     "preact": "^10.22.0",
-    "preact-render-to-string": "^6.4.2"
+    "preact-render-to-string": "^6.4.2",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.8.2",

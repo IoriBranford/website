@@ -3,6 +3,7 @@ import preact from '@preact/preset-vite';
 import ssr from 'vike/plugin';
 import mdx from '@mdx-js/rollup';
 import mkcert from 'vite-plugin-mkcert'
+import remarkGfm from 'remark-gfm'
 import {imagetools} from 'vite-imagetools'
 import vercelConfig from './vercel.json'
 
@@ -26,7 +27,10 @@ export default defineConfig({
 				}
 			, {})
 		}),
-		mdx({ jsxImportSource: 'preact' }),
+		mdx({
+			jsxImportSource: 'preact',
+			remarkPlugins: [remarkGfm]
+		}),
 		mkcert(),
 		imagetools({
 			defaultDirectives: (url) => {
