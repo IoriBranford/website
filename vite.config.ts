@@ -11,6 +11,12 @@ const __dirname = "" // to be replaced by vite
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	server: {
+		headers: {
+			"Cross-Origin-Opener-Policy": "same-origin",
+			"Cross-Origin-Embedder-Policy": "require-corp",
+		}
+	},
 	resolve: {
 		alias: [
 			{ find: '#root', replacement: __dirname }
