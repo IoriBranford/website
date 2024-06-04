@@ -36,12 +36,6 @@ export function Header({ url }) {
 					<PageNav href='/links' url={url}>Links</PageNav>
 					<PageNav href='/connect' url={url}>Connect</PageNav>
 					<PageNav href='/donate' url={url}>Donate</PageNav>
-					<li><details role='list'>
-						<summary aria-haspopup="listbox" role="link">Info</summary>
-						<ul role="listbox">
-							<PageNav href='/privacy' url={url}>Privacy Policy</PageNav>
-						</ul>
-					</details></li>
 				</ul>
 			</nav>
 	);
