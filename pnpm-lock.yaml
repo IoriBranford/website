@@ -43,8 +43,8 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
       vike:
-        specifier: ^0.4.172
-        version: 0.4.172(vite@5.2.12(sass@1.77.4))
+        specifier: 0.4.172-commit-605b4a5
+        version: 0.4.172-commit-605b4a5(vite@5.2.12(sass@1.77.4))
       vite:
         specifier: ^5.2.12
         version: 5.2.12(sass@1.77.4)
@@ -2413,8 +2413,8 @@ packages:
   vfile@5.3.7:
     resolution: {integrity: sha512-r7qlzkgErKjobAmyNIkkSpizsFPYiUPuJb5pNW1RB4JcYVZhs4lIbVqk8XPk033CV/1z8ss5pkax8SuhGpcG8g==}
 
-  vike@0.4.172:
-    resolution: {integrity: sha512-3IIGTmsrWT/0JXhTHNJ+UCZjH0soIKUxGVgPHrrmN9+SegBdRKsEfgDapd4PzmrNVOCAtxhbqiM5MZWz6lkQEw==}
+  vike@0.4.172-commit-605b4a5:
+    resolution: {integrity: sha512-2RLq7YHie+y4KhtxDOwH1uTv3czfD0eWm0NZSogiuUV1hikaFE5TZiRWC1EHxXutfuHjrmgfKtmAIYg4cmF+2g==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -5367,7 +5367,7 @@ snapshots:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  vike@0.4.172(vite@5.2.12(sass@1.77.4)):
+  vike@0.4.172-commit-605b4a5(vite@5.2.12(sass@1.77.4)):
     dependencies:
       '@brillout/import': 0.2.3
       '@brillout/json-serializer': 0.5.10

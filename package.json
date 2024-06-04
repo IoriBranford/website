@@ -23,7 +23,7 @@
     "eslint-config-preact": "^1.4.0",
     "sass": "^1.77.4",
     "typescript": "^5.4.5",
-    "vike": "^0.4.172",
+    "vike": "0.4.172-commit-605b4a5",
     "vite": "^5.2.12",
     "vite-imagetools": "^5.1.2",
     "vite-plugin-mkcert": "^1.17.5"
