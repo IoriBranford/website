@@ -26,3 +26,4 @@ dist-ssr
 
 # Bun (not 100% working on Vercel)
 bun.lockb
+.env*.local
