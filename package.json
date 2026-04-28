@@ -4,11 +4,11 @@
   "type": "module",
   "packageManager": "pnpm@10.33.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vike dev",
     "verceldev": "vercel dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "buildpreview": "vite build && vite preview"
+    "build": "vike build",
+    "preview": "vike preview",
+    "buildpreview": "vike build && vike preview"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",

@@ -5,7 +5,6 @@ import mdx from '@mdx-js/rollup';
 import mkcert from 'vite-plugin-mkcert'
 import remarkGfm from 'remark-gfm'
 import {imagetools} from 'vite-imagetools'
-import vercelConfig from './vercel.json'
 
 const __dirname = "" // to be replaced by vite
 
@@ -25,15 +24,7 @@ export default defineConfig({
 	},
 	plugins: [
 		preact(),
-		ssr({
-			prerender: true,
-			redirects: vercelConfig.redirects && vercelConfig.redirects.reduce(
-				(redirects, {source, destination}) => {
-					redirects[source] = destination;
-					return redirects
-				}
-			, {})
-		}),
+		ssr(),
 		mdx({
 			jsxImportSource: 'preact',
 			remarkPlugins: [remarkGfm]
