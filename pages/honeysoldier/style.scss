@@ -9,6 +9,10 @@ html {
     --wall-bottom: url(assets/wall-bottom.png);
 }
 
+code {
+    color: var(--color);
+}
+
 // TODO
 // @media (prefers-color-scheme: light) {
 //     html {
