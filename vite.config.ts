@@ -5,6 +5,7 @@ import mdx from '@mdx-js/rollup';
 import mkcert from 'vite-plugin-mkcert'
 import remarkGfm from 'remark-gfm'
 import {imagetools} from 'vite-imagetools'
+import rehypeStarryNight from 'rehype-starry-night';
 
 const __dirname = "" // to be replaced by vite
 
@@ -27,7 +28,8 @@ export default defineConfig({
 		ssr(),
 		mdx({
 			jsxImportSource: 'preact',
-			remarkPlugins: [remarkGfm]
+			remarkPlugins: [remarkGfm],
+			rehypePlugins: [rehypeStarryNight]
 		}),
 		mkcert(),
 		imagetools({

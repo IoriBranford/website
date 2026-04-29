@@ -14,8 +14,10 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@mdx-js/rollup": "^2.3.0",
     "@picocss/pico": "^1.5.13",
+    "@wooorm/starry-night": "^3.9.0",
     "preact": "^10.29.1",
     "preact-render-to-string": "^6.6.7",
+    "rehype-starry-night": "^2.2.0",
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
