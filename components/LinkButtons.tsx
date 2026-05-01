@@ -2,12 +2,13 @@ import { JSX } from "preact/jsx-runtime";
 // import "./LinkButtons.css";
 // import "#root/components/Resource.css"
 import OsIcons from "./OsIcons";
+import { HTMLAttributeAnchorTarget } from "preact";
 
 export function LinkButton({
   href,
   children,
   target
-}: JSX.HTMLAttributes<HTMLAnchorElement> & JSX.ElementChildrenAttribute) {
+}: {href: string, children: JSX.ElementChildrenAttribute, target: HTMLAttributeAnchorTarget}) {
   return (
     <a class="resource" target={target} href={href}>
       {children}
@@ -24,7 +25,7 @@ export function StoreLinkButton({
 }: {
   store: string;
   oses: string[];
-} & JSX.HTMLAttributes<HTMLAnchorElement>) {
+} & {store:string, oses: string[], href: string}) {
   const storeId = StoreId(store);
   return (
     <a class={`button-${storeId}`} target="__blank" href={href}>

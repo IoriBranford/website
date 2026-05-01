@@ -4,7 +4,7 @@ import { JSX } from "preact/jsx-runtime";
 // DON'T import "./Gallery.css"; here
 // Let each page's stylesheet import it to ensure correct ordering
 
-import { CSSProperties, HTMLAttributes } from "preact/compat";
+import { CSSProperties, HTMLAttributes } from "preact";
 
 export interface GalleryItemInfo {
   file: string;
@@ -16,7 +16,7 @@ export interface GalleryItemInfo {
 export type FullElementProps = HTMLAttributes<HTMLIFrameElement>;
 
 export interface GalleryItem {
-  img: JSX.HTMLAttributes<HTMLImageElement>
+  img: {src?: string, srcset: string, alt: string};
   fullElement?: (props:FullElementProps) => JSX.Element;
   info?: GalleryItemInfo;
 };
