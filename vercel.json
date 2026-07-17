@@ -1,6 +1,7 @@
 {
   "redirects": [
-    { "source": "/honey-soldier", "destination": "/honeysoldier", "permanent": true }
+    { "source": "/honey-soldier", "destination": "/honeysoldier", "permanent": true },
+    { "source": "/dragontail", "destination": "https://ioribranford.itch.io/rose-of-dragontail" }
   ],
   "headers": [
     {
