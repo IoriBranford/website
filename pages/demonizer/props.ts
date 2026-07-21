@@ -5,5 +5,7 @@ export const documentProps: GameProps = {
     "id": "demonizer",
     "title": "Demonizer",
     "description": "The fantasy bullet battle to end monstergirl genocide!",
-    image
+    "primaryColor": "#751fff",
+    image,
+    secondaryColor: "#925be8"
 }
