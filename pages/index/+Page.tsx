@@ -27,10 +27,15 @@ export function Page() {
 }
 
 function Resource(props) {
-	const {href, title, description, image} = props
+	const {href, title, description, image, primaryColor, secondaryColor} = props
 	return (<section>
 		<a href={href}>
-			<button style={{width: 'fit-content', padding: 0}} title={title}>
+			<button style={{
+				width: 'fit-content',
+				padding: 0,
+				borderColor: secondaryColor,
+				borderWidth: 2,
+				}} title={title}>
 				<img src={image} alt={title} style={{borderRadius: 'var(--border-radius)'}}/>
 			</button>
 			<b>{title}</b>
