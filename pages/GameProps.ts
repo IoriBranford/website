@@ -5,4 +5,5 @@ export default interface GameProps {
     image: string;
     primaryColor: string|number|null;
     secondaryColor: string|number|null;
+    priority: number;
 }

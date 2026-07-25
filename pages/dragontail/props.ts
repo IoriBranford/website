@@ -7,5 +7,6 @@ export const documentProps: GameProps = {
     "description": "Kick tail with tail! NEW in development!",
     "primaryColor": "#b51b1b",
     "secondaryColor": "#ff6b6b",
-    image
+    image,
+    priority: 1
 }

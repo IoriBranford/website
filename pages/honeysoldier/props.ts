@@ -7,5 +7,6 @@ export const documentProps: GameProps = {
     "description": "Shoot invaders out of your hive in 2 minutes!",
     "primaryColor": "#cea316",
     image,
-    secondaryColor: "#f0ead7"
+    secondaryColor: "#f0ead7",
+    priority: 3
 }

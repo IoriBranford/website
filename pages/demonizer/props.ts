@@ -7,5 +7,6 @@ export const documentProps: GameProps = {
     "description": "The fantasy bullet battle to end monstergirl genocide!",
     "primaryColor": "#751fff",
     image,
-    secondaryColor: "#925be8"
+    secondaryColor: "#925be8",
+    priority: 2
 }
