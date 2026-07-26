@@ -29,6 +29,7 @@ export function Header({ url }) {
 					<li><details role='list'>
 						<summary aria-haspopup="listbox" role="link">Games</summary>
 						<ul role="listbox">
+							<PageNav href='/dragontail' url={url}>Rose of Dragontail</PageNav>
 							<PageNav href='/demonizer' url={url}>Demonizer</PageNav>
 							<PageNav href='/honeysoldier' url={url}>Honey Soldier</PageNav>
 						</ul>
