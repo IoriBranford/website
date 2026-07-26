@@ -7,19 +7,15 @@ export function Page() {
 		.sort((a, b)=>(a[1].priority - b[1].priority))
 	const game1 = games[0][1];
 	return (
-		<div style={{justifyItems: 'center'}}>
+		<div style={{margin:"auto", maxWidth:'968px'}}>
 			<h1 style={{textAlign: 'center'}}><img class='avatar' src='/avatar.png' alt="Iori Branford's avatar" height="64" width="64" /> Iori Branford</h1>
 			<h2 style={{textAlign: 'center'}}>Games</h2>
-			<section>
-				<div class='grid' style={{justifyItems: 'center'}}>
-					<Resource href={`/${game1.id}`} {...game1}/>
-				</div>
-				<div class='grid' style={{justifyItems: 'center'}}>
-					{games.slice(1).map(([id, game]) => (
-						<Resource href={`/${id}`} {...game}/>
-					))}
-				</div>
-			</section>
+			<Resource href={`/${game1.id}`} {...game1}/>
+			<div class='grid'>
+				{games.slice(1).map(([id, game]) => (
+					<Resource href={`/${id}`} {...game}/>
+				))}
+			</div>
 			<div class='grid' style={{textAlign: 'center'}}>
 				<section><a href="/links"><b>🔗 Links</b></a></section>
 				<section><a href="/connect"><b>💬 Connect</b></a></section>
